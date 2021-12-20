@@ -17,6 +17,9 @@ storiesOf('ui/pages', module).add('money-transfer-page', () => {
         input: '',
         setInput: () => {},
         placeholderText: 'Введите номер телефона',
+        isPageAuth: false,
+        setPhoneInputClicked: () => void 0,
+        phoneInputClicked: false,
       }}
       moneySum={{
         inputMoney: 500,
@@ -25,6 +28,8 @@ storiesOf('ui/pages', module).add('money-transfer-page', () => {
         setInputMoney: () => null,
         clicked: false,
         setClicked: () => void 0,
+        CASHBACK_PERCENT: 17,
+        CASHBACK_SUM: '500',
       }}
       creditCard={{
         title: 'Карта для оплаты',

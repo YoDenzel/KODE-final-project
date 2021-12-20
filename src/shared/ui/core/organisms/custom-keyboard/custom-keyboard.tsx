@@ -1,33 +1,39 @@
 import { styled } from '@shared/ui/theme';
-import { DeleteLastSymbol } from '../../molecules';
-import { CustomKeyboardSingleNumber } from '../../molecules/custom-keyboard-single-number/custom-keyboard-single-number';
+import { CustomKeyboardSingleNumber } from '../../molecules';
 
 const Wrapper = styled.View`
   background-color: ${({ theme }) => theme.palette.background.primary};
   flex-direction: row;
   flex-wrap: wrap;
+  margin-top: ${({ theme }) => theme.spacing(3)}px;
 `;
 
-export const CustomKeyboard = () => {
-  const arr = [
-    '1',
-    '2',
-    '3',
-    '4',
-    '5',
-    '6',
-    '7',
-    '8',
-    '9',
-    'Отмена',
-    '0',
-    <DeleteLastSymbol />,
-  ];
-  return (
+type TItem = string | JSX.Element;
+
+interface TCustomKeyboard {
+  keyboardItems: Array<TItem>;
+  phoneInputClicked: boolean;
+  randomKey: Function;
+  isOtp: boolean;
+}
+
+export const CustomKeyboard = ({
+  keyboardItems,
+  phoneInputClicked,
+  randomKey,
+  isOtp,
+}: TCustomKeyboard) => {
+  return phoneInputClicked ? (
     <Wrapper>
-      {arr.map(item => {
-        return <CustomKeyboardSingleNumber number={item} />;
+      {keyboardItems.map(item => {
+        return (
+          <CustomKeyboardSingleNumber
+            key={randomKey()}
+            number={item}
+            isOtp={isOtp}
+          />
+        );
       })}
     </Wrapper>
-  );
+  ) : null;
 };

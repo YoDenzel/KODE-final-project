@@ -1,26 +1,15 @@
 import { storiesOf } from '@storybook/react-native';
 import { HideKeyboardButton, DeleteLastSymbol } from '../../molecules';
-import { PhoneAuthPage } from './phone-auth-page';
+import { OtpConfirmationPage } from './otp-confirmation-page';
 
-storiesOf('ui/pages', module).add('phone-auth-page', () => {
+storiesOf('ui/pages', module).add('otp-confirmation-page', () => {
   return (
-    <PhoneAuthPage
-      submitButton={{
-        title: 'Войти',
-        checkConditions: () => void 0,
+    <OtpConfirmationPage
+      otpInput={{
+        title: 'На ваш номер отправлено SMS с кодом подтверждения',
       }}
-      phoneInput={{
-        items_icon: 'https://github.com/kode-frontend/files/raw/main/MTS.png',
-        input: '',
-        setInput: () => {},
-        placeholderText: 'Телефон',
-        isPageAuth: true,
-        setPhoneInputClicked: () => void 0,
-        phoneInputClicked: true,
-      }}
-      kodeLogo
       customKeyboard={{
-        isOtp: false,
+        isOtp: true,
         randomKey: () => void 0,
         phoneInputClicked: true,
         keyboardItems: [
@@ -41,7 +30,6 @@ storiesOf('ui/pages', module).add('phone-auth-page', () => {
           <DeleteLastSymbol />,
         ],
       }}
-      snackBar={{ snack: [], success: true }}
     />
   );
 });

@@ -14,22 +14,27 @@ interface TPhoneAuthTemplate {
   kodeLogo: ReactNode;
   submitButtton: ReactNode;
   phoneInput: ReactNode;
+  customKeyboard: ReactNode;
+  snackBar: ReactNode;
 }
 
 export const PhoneAuthTemplate = ({
   kodeLogo,
   submitButtton,
   phoneInput,
+  customKeyboard,
+  snackBar,
 }: TPhoneAuthTemplate) => {
   return (
     <>
       <Background>
         <Flex1 />
         {kodeLogo}
-        <Flex1 />
         {phoneInput}
         <Flex1 />
         {submitButtton}
+        {customKeyboard}
+        {snackBar}
       </Background>
     </>
   );

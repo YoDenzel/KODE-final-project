@@ -1,0 +1,1 @@
+export {ConfirmationPageConnector} from './confirmation-page-connector'

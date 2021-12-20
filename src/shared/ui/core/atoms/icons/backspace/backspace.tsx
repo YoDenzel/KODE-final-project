@@ -1,5 +1,5 @@
 import { TBaseIconProps } from '@shared/ui/icons/types';
-import Svg, { SvgProps, Path } from 'react-native-svg';
+import Svg, { Path } from 'react-native-svg';
 
 export const Backspace = ({ size = 25, color }: TBaseIconProps) => (
   <Svg width={size} height={size} fill="none">

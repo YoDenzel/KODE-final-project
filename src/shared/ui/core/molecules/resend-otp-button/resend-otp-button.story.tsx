@@ -1,15 +1,15 @@
 import { styled } from '@shared/ui/theme';
 import { storiesOf } from '@storybook/react-native';
-import { ConfirmationInfo } from '.';
+import { ResendOtpButton } from './resend-otp-button';
 
 const Wrapper = styled.View`
   background-color: ${({ theme }) => theme.palette.background.primary};
 `;
 
-storiesOf('ui/molecules', module).add('confrimation-info', () => {
+storiesOf('ui/molecules', module).add('hide-keyboard-button', () => {
   return (
     <Wrapper>
-      <ConfirmationInfo title="Карта для оплаты" info="Карта зарплатная" />
+      <ResendOtpButton title="Выслать код повторно" />
     </Wrapper>
   );
 });

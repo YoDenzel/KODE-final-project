@@ -1,4 +1,5 @@
 import { styled } from '@shared/ui/theme';
+import { resetTimer } from '../../../../../models';
 import { TouchableOpacity } from 'react-native';
 import { Typography } from '../../atoms';
 
@@ -8,20 +9,16 @@ const Wrapper = styled(TouchableOpacity)`
 `;
 
 const Title = styled(Typography)`
-  color: ${({ theme }) => theme.palette.text.primary};
+  text-align: center;
 `;
 
-interface THideKeyboardButton {
+interface TResendOtpButton {
   title: string;
-  setPhoneInputClick: (v1: boolean) => void;
 }
 
-export const HideKeyboardButton = ({
-  title,
-  setPhoneInputClick,
-}: THideKeyboardButton) => {
+export const ResendOtpButton = ({ title }: TResendOtpButton) => {
   return (
-    <Wrapper onPress={() => setPhoneInputClick(false)}>
+    <Wrapper onPress={() => resetTimer()}>
       <Title variant="caption1">{title}</Title>
     </Wrapper>
   );

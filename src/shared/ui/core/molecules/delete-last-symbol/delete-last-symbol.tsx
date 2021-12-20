@@ -1,4 +1,5 @@
 import { styled } from '@shared/ui/theme';
+import { deleteLastChar } from '../../../../../models';
 import { TouchableOpacity } from 'react-native';
 import { Icons } from '../../atoms';
 
@@ -9,7 +10,11 @@ const Wrapper = styled(TouchableOpacity)`
 
 export const DeleteLastSymbol = () => {
   return (
-    <Wrapper>
+    <Wrapper
+      onPress={() => {
+        deleteLastChar('');
+      }}
+    >
       <Icons.Backspace />
     </Wrapper>
   );

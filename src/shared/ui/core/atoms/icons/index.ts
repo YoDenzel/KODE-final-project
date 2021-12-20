@@ -12,6 +12,7 @@ import { PostRequestDeclined } from './post-request-declined/post-request-declin
 import { PostRequestAccepted } from './post-request-accepted/post-request-accepted';
 import { KodeLogo } from './kode-logo/kode-logo';
 import { Backspace } from './backspace/backspace';
+import { Telephone } from './telephone/telephone';
 
 export const Icons = {
   ArrowGoBack,
@@ -28,4 +29,5 @@ export const Icons = {
   PostRequestAccepted,
   KodeLogo,
   Backspace,
+  Telephone,
 };

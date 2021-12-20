@@ -9,6 +9,7 @@ const Wrapper = styled.SafeAreaView<{ height: number }>`
   align-items: center;
   justify-content: center;
   flex: 1;
+  margin-bottom: 20px;
 `;
 
 const SubmitButtonContainer = styled.TouchableOpacity`
@@ -31,7 +32,6 @@ interface TSubmitButton {
 
 export const SubmitButton: React.FC<TSubmitButton> = ({
   title,
-
   checkConditions,
 }) => {
   const { height } = useWindowDimensions();
@@ -39,11 +39,7 @@ export const SubmitButton: React.FC<TSubmitButton> = ({
   return (
     <>
       <Wrapper height={height}>
-        <SubmitButtonContainer
-          onPress={() => {
-            checkConditions();
-          }}
-        >
+        <SubmitButtonContainer onPress={() => checkConditions()}>
           <ButtonTitle variant="button">{title}</ButtonTitle>
         </SubmitButtonContainer>
       </Wrapper>

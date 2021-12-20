@@ -1,11 +1,13 @@
 import { useStore } from 'effector-react';
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import {
   $hasSnack,
   $queueSnack,
   snackAdded,
   $success,
   addSnack,
+  $isPageAuth,
+  setIsPageAuth,
 } from '../../../../models';
 import { MoneyTransferPage } from '@shared/ui/core/pages/money-transfer-page/money-transfer-page';
 import { useGetServiceCashback } from '@shared/hooks';
@@ -31,6 +33,8 @@ export const MoneyTransferPageConnector = ({
   const [inputPhone, setInputPhone] = useState<string>('');
   const [inputMoney, setInputMoney] = useState<number>(0);
   const [clicked, setClicked] = useState(false);
+  const [phoneInputClicked, setPhoneInputClicked] = useState(false);
+  const isPageAuth = useStore($isPageAuth);
   const theme = useTheme();
   const moneyArr = [100, 500, 1000, 2500, 5000, 10000, 15000, 20000];
   const item = route.params.data;
@@ -82,6 +86,10 @@ export const MoneyTransferPageConnector = ({
         });
   };
 
+  useEffect(() => {
+    setIsPageAuth(false);
+  }, []);
+
   return (
     <MoneyTransferPage
       moneySum={{
@@ -112,6 +120,9 @@ export const MoneyTransferPageConnector = ({
         input: inputPhone,
         setInput: setInputPhone,
         placeholderText: 'Номер телефона',
+        isPageAuth: isPageAuth,
+        setPhoneInputClicked: setPhoneInputClicked,
+        phoneInputClicked: phoneInputClicked,
       }}
       navigation={navigation}
       snackBar={{

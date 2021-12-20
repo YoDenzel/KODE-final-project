@@ -2,6 +2,8 @@ import {
   AcceptedDeclinedConnector,
   ConfirmationPageConnector,
   MoneyTransferPageConnector,
+  OtpConfirmationPageConnector,
+  PhoneAuthPageConnector,
   ServicePageConnector,
 } from '@pages/ui';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -17,6 +19,8 @@ export const StackNavigation = () => {
         headerShown: false,
       }}
     >
+      <Stack.Screen name="phoneAuth" component={PhoneAuthPageConnector} />
+      <Stack.Screen name="otpAuth" component={OtpConfirmationPageConnector} />
       <Stack.Screen name="tabs" component={TabsNavigation} />
       <Stack.Screen name="services" component={ServicePageConnector} />
       <Stack.Screen name="salary" component={MoneyTransferPageConnector} />

@@ -6,4 +6,6 @@ export {
   ServicePageConnector,
   ConfirmationPageConnector,
   AcceptedDeclinedConnector,
+  OtpConfirmationPageConnector,
+  PhoneAuthPageConnector,
 } from './connectors';

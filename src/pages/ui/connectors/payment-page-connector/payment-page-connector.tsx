@@ -40,13 +40,6 @@ export function PaymentPageConnector({ navigation }: TPayment) {
     updateServices(services as ServicesStore);
   }, [data]);
 
-  sample({
-    clock: addSnack,
-    source: $snacks,
-    fn: snacks => snacks.filter(item => item !== undefined),
-    target: $queueSnack,
-  });
-
   useEffect(() => {
     snackLifeTimeFx();
   }, [snacksStorage]);

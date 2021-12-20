@@ -4,4 +4,6 @@ export type stackParamList = {
   salary: undefined;
   confirmation: undefined;
   acceptedDeclined: undefined;
+  phoneAuth: undefined;
+  otpAuth: undefined;
 };

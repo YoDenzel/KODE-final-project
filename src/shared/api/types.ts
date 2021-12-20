@@ -29,3 +29,13 @@ export type THistoryPost = {
   inputMoney: number;
   CASHBACK_SUM: string | undefined | 0;
 };
+
+export type TAuthPost = {
+  inputPhone: string;
+};
+
+export type OtpResponse = {
+  otpCode: string;
+  otpId: string;
+  otpLen: number;
+};

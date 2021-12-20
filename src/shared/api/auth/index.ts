@@ -1,0 +1,1 @@
+export { fetchPostAuth } from './fetchPostAuth';

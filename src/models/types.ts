@@ -26,3 +26,5 @@ export type TServices = {
   service_id: string;
   service_name: string;
 };
+
+export type TPostAuth = string | undefined;

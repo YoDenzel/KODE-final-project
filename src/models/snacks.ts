@@ -1,4 +1,10 @@
-import { createEffect, createEvent, createStore, restore } from 'effector';
+import {
+  createEffect,
+  createEvent,
+  createStore,
+  restore,
+  sample,
+} from 'effector';
 import { Snack } from './types';
 
 type Snacks = Snack[];
@@ -52,3 +58,10 @@ export const snackAdded = ({ title, successful, id }: TSnackAdded) => {
   setSuccess(successful);
   removeSnack(1);
 };
+
+sample({
+  clock: addSnack,
+  source: $snacks,
+  fn: snacks => snacks.filter(item => item !== undefined),
+  target: $queueSnack,
+});

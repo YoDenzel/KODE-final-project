@@ -7,7 +7,7 @@ const Wrapper = styled(TouchableOpacity)`
   flex: 33%;
   justify-content: center;
   align-items: center;
-  padding: ${({ theme }) => theme.spacing(2.5)}px 0;
+  padding: ${({ theme }) => theme.spacing(2)}px 0;
 `;
 
 const Title = styled(Typography)`

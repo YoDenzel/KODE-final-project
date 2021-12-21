@@ -1,7 +1,5 @@
 import { styled } from '@shared/ui/theme';
-import { useStore } from 'effector-react';
-import { $inputOtp } from '../../../../../models';
-import { TextInput, Text } from 'react-native';
+import { TextInput, Text, View } from 'react-native';
 import { Typography } from '../../atoms';
 
 const OtpContainer = styled.View`
@@ -9,16 +7,27 @@ const OtpContainer = styled.View`
   justify-content: center;
 `;
 
-const Title = styled(Typography)`
+const Wrapper = styled.View`
   height: ${({ theme }) => theme.spacing(6)}px;
   width: ${({ theme }) => theme.spacing(5)}px;
   margin-right: ${({ theme }) => theme.spacing(1) + 2}px;
   background-color: ${({ theme }) => theme.palette.content.secondary};
   text-align: center;
-  padding: 10px;
-  border-radius: ${({ theme }) => theme.spacing(2) - 4}px;
+  justify-content: center;
+  align-items: center;
+  border-radius: ${({ theme }) => theme.spacing(1.5)}px;
 `;
 
+const Title = styled(Typography)`
+  text-align: center;
+`;
+
+const Border = styled.View`
+  border-bottom-color: ${({ theme }) => theme.palette.accent.primary};
+  border-bottom-width: 2px;
+  border-radius: ${({ theme }) => theme.spacing(2)}px;
+  width: 60%;
+`;
 const Dash = styled(Typography)`
   align-self: center;
   padding-right: ${({ theme }) => theme.spacing(1.25)}px;
@@ -30,6 +39,7 @@ interface TOtpInput {
 
 export const OtpInput = ({ otp }: TOtpInput) => {
   let randomInt = Math.random();
+
   return (
     <>
       <TextInput
@@ -41,9 +51,10 @@ export const OtpInput = ({ otp }: TOtpInput) => {
       <OtpContainer>
         {[0, 1, 2, 3].map((item, index) => (
           <>
-            <Title key={index} variant="subtitle">
-              {otp[item]}
-            </Title>
+            <Wrapper key={index}>
+              <Title>{otp[item]}</Title>
+              {index === otp.length ? <Border /> : null}
+            </Wrapper>
             {index === 1 ? (
               <Dash key={randomInt} variant="subtitle">
                 -

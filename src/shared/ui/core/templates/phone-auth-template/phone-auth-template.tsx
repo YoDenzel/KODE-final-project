@@ -34,12 +34,11 @@ export const PhoneAuthTemplate = ({
         <Flex1 />
         {cancelAuth}
         {kodeLogo}
+        <Flex1 />
         {phoneInput}
         <Flex1 />
-        <KeyboardAvoidingView behavior="padding" keyboardVerticalOffset={100}>
-          {submitButtton}
-          {customKeyboard}
-        </KeyboardAvoidingView>
+        {submitButtton}
+        {customKeyboard}
         {snackBar}
       </Background>
     </>

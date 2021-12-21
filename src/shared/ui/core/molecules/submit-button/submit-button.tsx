@@ -5,11 +5,11 @@ import { styled } from '@shared/ui/theme';
 
 const Wrapper = styled.SafeAreaView<{ height: number }>`
   width: 100%;
-  height: ${props => props.height / 6}px;
+  height: ${props => props.height / 5}px;
   align-items: center;
   justify-content: center;
   flex: 1;
-  margin-bottom: ${({ theme }) => theme.spacing(5)}px;
+  margin-bottom: ${({ theme }) => theme.spacing(3.5)}px;
 `;
 
 const SubmitButtonContainer = styled.TouchableOpacity`

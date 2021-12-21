@@ -6,4 +6,5 @@ export type stackParamList = {
   acceptedDeclined: undefined;
   phoneAuth: undefined;
   otpAuth: undefined;
+  passwordAuth: undefined;
 };

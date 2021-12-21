@@ -3,6 +3,7 @@ import {
   ConfirmationPageConnector,
   MoneyTransferPageConnector,
   OtpConfirmationPageConnector,
+  PasswordPageConnector,
   PhoneAuthPageConnector,
   ServicePageConnector,
 } from '@pages/ui';
@@ -21,6 +22,7 @@ export const StackNavigation = () => {
     >
       <Stack.Screen name="phoneAuth" component={PhoneAuthPageConnector} />
       <Stack.Screen name="otpAuth" component={OtpConfirmationPageConnector} />
+      <Stack.Screen name="passwordAuth" component={PasswordPageConnector} />
       <Stack.Screen name="tabs" component={TabsNavigation} />
       <Stack.Screen name="services" component={ServicePageConnector} />
       <Stack.Screen name="salary" component={MoneyTransferPageConnector} />

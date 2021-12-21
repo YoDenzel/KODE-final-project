@@ -8,4 +8,5 @@ export {
   AcceptedDeclinedConnector,
   OtpConfirmationPageConnector,
   PhoneAuthPageConnector,
+  PasswordPageConnector,
 } from './connectors';

@@ -46,15 +46,19 @@ interface TProps {
   input: string;
   setInput: (v: string) => void;
   placeholderText: string;
+  passwordShow: boolean;
+  setPasswordShow: (v: boolean) => void;
 }
 
 export const PasswordInput: React.FC<TProps> = ({
   input,
   setInput,
   placeholderText,
+  passwordShow,
+  setPasswordShow,
 }) => {
   const [placeholder, setPlaceholder] = useState(placeholderText);
-  const [clicked, setClicked] = useState<boolean>(true);
+  let clicked = false;
 
   return (
     <Container>
@@ -67,17 +71,17 @@ export const PasswordInput: React.FC<TProps> = ({
             placeholder={placeholder}
             placeholderTextColor="#706D76"
             selectionColor="#6C78E6"
-            value={input}
+            value={'123'}
             onChangeText={setInput}
             onFocus={() => {
               setPlaceholder('');
             }}
-            secureTextEntry={clicked ? false : true}
+            secureTextEntry={passwordShow ? false : true}
           />
         </PhoneInputContainer>
 
-        <IconBlock onPress={() => setInput('')}>
-          {clicked ? <Icons.ShowPassword /> : <Icons.PasswordVisible />}
+        <IconBlock onPress={() => setPasswordShow(!passwordShow)}>
+          {passwordShow ? <Icons.ShowPassword /> : <Icons.PasswordVisible />}
         </IconBlock>
       </Wrapper>
     </Container>

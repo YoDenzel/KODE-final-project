@@ -18,7 +18,7 @@ const Error = styled(Typography)`
   text-align: center;
   padding-right: ${({ theme }) => theme.spacing(1.25)}px;
   color: ${({ theme }) => theme.palette.indicator.error};
-  margin-top: ${({ theme }) => theme.spacing(1)}px;
+  margin-top: ${({ theme }) => theme.spacing(2)}px;
 `;
 
 const Loading = styled(ActivityIndicator)`

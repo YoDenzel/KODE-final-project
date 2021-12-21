@@ -27,14 +27,13 @@ import { createEvent, createStore } from 'effector';
 
 export const OtpConfirmationPageConnector = ({ navigation, route }: TRoute) => {
   const { mutateAsync } = usePostAuthOtp();
-  const { mutateAsync: mutate, data, isLoading } = usePostAuthConfirm();
+  const { mutateAsync: mutate, data, isLoading, status } = usePostAuthConfirm();
   const inputPhone = useStore($inputPhone);
   const otp = useStore($inputOtp);
   const minutes = useStore($timerMinutes);
   const seconds = useStore($timerSeconds);
   const authCode = useStore($postAuthCode);
   const amountOfTries = useStore($amountOfTries);
-  const randomKey = () => Math.random();
   const phoneInputClicked = true;
   const otpCode = useStore($postAuthCode);
   const otpId = useStore($postAuthId);
@@ -50,6 +49,14 @@ export const OtpConfirmationPageConnector = ({ navigation, route }: TRoute) => {
   const errorNavigation = () => {
     navigation.navigate('phoneAuth', {});
     resetPhone();
+  };
+
+  const successPostGuestToken = () => {
+    mutate({ inputPhone, otpCode, otpId });
+    resetAmountOfTries();
+    if (status === 'success') {
+      navigation.navigate('passwordAuth', {});
+    }
   };
 
   const errorAlert = () => {
@@ -98,7 +105,7 @@ export const OtpConfirmationPageConnector = ({ navigation, route }: TRoute) => {
           errorAlert();
         }
       } else {
-        mutate({ inputPhone, otpCode, otpId });
+        successPostGuestToken();
       }
       resetOtp();
     }
@@ -135,7 +142,6 @@ export const OtpConfirmationPageConnector = ({ navigation, route }: TRoute) => {
       customKeyboard={{
         keyboardItems: keyboardItems,
         phoneInputClicked: phoneInputClicked,
-        randomKey: randomKey,
         isOtp: route.name,
         loading: isLoading,
       }}

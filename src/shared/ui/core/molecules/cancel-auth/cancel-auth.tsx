@@ -4,9 +4,13 @@ import { ClearPhoneInput } from '../../atoms/icons/clear-phone-number/clear-phon
 
 const Wrapper = styled(TouchableOpacity)`
   position: absolute;
-  top: 20px;
-  left: 5px;
+  top: ${({ theme }) => theme.spacing(3.75)}px;
+  left: ${({ theme }) => theme.spacing(2.5)}px;
 `;
+
+interface TCancelAuth {
+  quit: Function;
+}
 
 export const CancelAuth = () => {
   return (

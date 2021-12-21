@@ -6,6 +6,7 @@
 function loadStories() {
   require('../src/shared/ui/core/atoms/typography/typography.story');
   require('../src/shared/ui/core/molecules/accepted-declined-text/accepted-declined-text.story');
+  require('../src/shared/ui/core/molecules/cancel-auth/cancel-auth.story');
   require('../src/shared/ui/core/molecules/cashback-text/cashback-text.story');
   require('../src/shared/ui/core/molecules/confirmation-condition/confirmation-condition.story');
   require('../src/shared/ui/core/molecules/confirmation-info/confirmation-info.story');
@@ -51,6 +52,7 @@ function loadStories() {
 const stories = [
   '../src/shared/ui/core/atoms/typography/typography.story',
   '../src/shared/ui/core/molecules/accepted-declined-text/accepted-declined-text.story',
+  '../src/shared/ui/core/molecules/cancel-auth/cancel-auth.story',
   '../src/shared/ui/core/molecules/cashback-text/cashback-text.story',
   '../src/shared/ui/core/molecules/confirmation-condition/confirmation-condition.story',
   '../src/shared/ui/core/molecules/confirmation-info/confirmation-info.story',

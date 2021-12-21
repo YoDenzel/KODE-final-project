@@ -14,7 +14,7 @@ interface TCustomKeyboard {
   keyboardItems: Array<TItem>;
   phoneInputClicked: boolean;
   randomKey: Function;
-  isOtp: boolean;
+  isOtp: string;
   loading?: boolean;
 }
 

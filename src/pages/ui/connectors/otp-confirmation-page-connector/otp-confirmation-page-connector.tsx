@@ -10,8 +10,6 @@ import {
   setTimerSeconds,
   setTimerMinutes,
   $inputPhone,
-  $isPageOtp,
-  setIsPageOtp,
   $inputOtp,
   resetTimer,
   $postAuthCode,
@@ -35,7 +33,6 @@ export const OtpConfirmationPageConnector = ({ navigation, route }: TRoute) => {
   const otp = useStore($inputOtp);
   const minutes = useStore($timerMinutes);
   const seconds = useStore($timerSeconds);
-  const isOtp = useStore($isPageOtp);
   const authCode = useStore($postAuthCode);
   const amountOfTries = useStore($amountOfTries);
   const randomKey = () => Math.random();
@@ -108,10 +105,6 @@ export const OtpConfirmationPageConnector = ({ navigation, route }: TRoute) => {
   }, [otp]);
 
   useEffect(() => {
-    setIsPageOtp(true);
-  }, [route]);
-
-  useEffect(() => {
     let myInterval = setInterval(() => {
       if (seconds > 0) {
         setTimerSeconds(seconds - 1);
@@ -143,7 +136,7 @@ export const OtpConfirmationPageConnector = ({ navigation, route }: TRoute) => {
         keyboardItems: keyboardItems,
         phoneInputClicked: phoneInputClicked,
         randomKey: randomKey,
-        isOtp: isOtp,
+        isOtp: route.name,
         loading: isLoading,
       }}
     />

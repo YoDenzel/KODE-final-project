@@ -12,13 +12,11 @@ import {
   $hasSnack,
   $inputPhone,
   $isPageAuth,
-  $isPageOtp,
   $queueSnack,
   $snacks,
   $success,
   setInputPhone,
   setIsPageAuth,
-  setIsPageOtp,
   setPostAuthCode,
   setPostAuthId,
   snackAdded,
@@ -30,7 +28,6 @@ export const PhoneAuthPageConnector = ({ navigation, route }: TRoute) => {
   const [phoneInputClicked, setPhoneInputClicked] = useState(false);
   const inputPhone = useStore($inputPhone);
   const isPageAuth = useStore($isPageAuth);
-  const isOtp = useStore($isPageOtp);
   const success = useStore($success);
   const snack = useStore($queueSnack);
   const snacksStorage = useStore($snacks);
@@ -61,10 +58,6 @@ export const PhoneAuthPageConnector = ({ navigation, route }: TRoute) => {
       });
     }
   };
-
-  useEffect(() => {
-    setIsPageOtp(false);
-  }, [route]);
 
   useEffect(() => {
     setIsPageAuth(true);
@@ -115,7 +108,7 @@ export const PhoneAuthPageConnector = ({ navigation, route }: TRoute) => {
         keyboardItems: keyboardItems,
         phoneInputClicked: phoneInputClicked,
         randomKey: randomKey,
-        isOtp: isOtp,
+        isOtp: route.name,
       }}
       snackBar={{
         success: success,

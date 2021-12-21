@@ -11,11 +11,12 @@ const Flex1 = styled.View`
 `;
 
 interface TPhoneAuthTemplate {
+  quitButton?: ReactNode;
   kodeLogo: ReactNode;
   submitButtton: ReactNode;
   phoneInput: ReactNode;
-  customKeyboard: ReactNode;
-  snackBar: ReactNode;
+  customKeyboard?: ReactNode;
+  snackBar?: ReactNode;
 }
 
 export const PhoneAuthTemplate = ({
@@ -24,11 +25,13 @@ export const PhoneAuthTemplate = ({
   phoneInput,
   customKeyboard,
   snackBar,
+  quitButton,
 }: TPhoneAuthTemplate) => {
   return (
     <>
       <Background>
         <Flex1 />
+        {quitButton}
         {kodeLogo}
         {phoneInput}
         <Flex1 />

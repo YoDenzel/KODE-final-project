@@ -19,6 +19,7 @@ import {
   resetAmountOfTries,
   $postAuthId,
   resetPhone,
+  addGuestToken,
 } from '../../../../models';
 import { usePostAuthOtp } from '@shared/hooks/use-post-auth-otp';
 import { TRoute } from '../confirmation-page-connector/types';
@@ -37,12 +38,6 @@ export const OtpConfirmationPageConnector = ({ navigation, route }: TRoute) => {
   const phoneInputClicked = true;
   const otpCode = useStore($postAuthCode);
   const otpId = useStore($postAuthId);
-
-  const $guestToken = createStore<string | undefined>('');
-
-  const addGuestToken = createEvent<string | undefined>();
-
-  $guestToken.on(addGuestToken, (_, payload) => payload);
 
   addGuestToken(data?.guestToken);
 
@@ -104,12 +99,17 @@ export const OtpConfirmationPageConnector = ({ navigation, route }: TRoute) => {
       } else {
         successPostGuestToken();
       }
-      resetOtp();
     }
-    if (status === 'success') {
-      navigation.navigate('passwordAuth', {});
+  }, [otp]);
+
+  useEffect(() => {
+    if (otp.length === 4) {
+      if (status === 'success') {
+        navigation.navigate('passwordAuth', {});
+        resetOtp();
+      }
     }
-  }, [otp, status]);
+  }, [status]);
 
   useEffect(() => {
     let myInterval = setInterval(() => {

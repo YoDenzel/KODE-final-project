@@ -1,4 +1,5 @@
 import { createEvent, createStore, restore } from 'effector';
+import { persist } from 'effector-storage/rn/async';
 import { TPostAuth } from './types';
 
 export const $isPageAuth = createStore<boolean>(true);
@@ -90,3 +91,14 @@ $amountOfTries.on(setAmountOfTries, (state, payload) => {
 export const resetAmountOfTries = createEvent();
 
 $amountOfTries.reset(resetAmountOfTries);
+
+export const $guestToken = createStore<string | undefined>('');
+
+export const addGuestToken = createEvent<string | undefined>();
+
+$guestToken.on(addGuestToken, (_, payload) => payload);
+
+persist({
+  store: $guestToken,
+  key: 'guestToken',
+});

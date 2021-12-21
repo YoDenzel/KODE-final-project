@@ -40,12 +40,22 @@ export type OtpResponse = {
   otpLen: number;
 };
 
-export type ConfirmResponse = {
-  guestToken: string;
-};
-
 export type TConfirmPost = {
   otpCode: string | undefined;
   otpId: string | undefined;
   inputPhone: string;
+};
+
+export type ConfirmResponse = {
+  guestToken: string;
+};
+
+export type TEnterPost = {
+  guestToken: string;
+  password: string;
+};
+
+export type EnterResponse = {
+  refreshToken: string;
+  accessToken: string;
 };

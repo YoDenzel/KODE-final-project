@@ -10,14 +10,26 @@ import {
 import { useEffect, useState } from 'react';
 import { Alert } from 'react-native';
 import { TRoute } from '../confirmation-page-connector/types';
+import { usePostAuthEnter } from '@shared/hooks';
+import { createEffect } from 'effector';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export const PasswordPageConnector = ({ navigation }: TRoute) => {
+  const { mutateAsync, data } = usePostAuthEnter();
   const [passwordShow, setPasswordShow] = useState<boolean>(false);
   const [input, setInput] = useState<string>('');
   const snack = useStore($queueSnack);
   const snacksStorage = useStore($snacks);
   const has = useStore($hasSnack);
   const id = Number(Date.now());
+
+  const fetchCountFromAsyncStorageFx = createEffect({
+    async handler() {
+      const value = await AsyncStorage.getItem('guestToken');
+
+      return value;
+    },
+  });
 
   const queueForSnacks = () => {
     if (has) {
@@ -26,6 +38,10 @@ export const PasswordPageConnector = ({ navigation }: TRoute) => {
       checkCondition();
     }
   };
+
+  useEffect(() => {
+    fetchCountFromAsyncStorageFx();
+  }, []);
 
   useEffect(() => {
     snackLifeTimeFx();

@@ -7,7 +7,7 @@ export const fetchPostAuthConfirm = async ({
 }: TConfirmPost): Promise<ConfirmResponse> => {
   await new Promise(resolve => {
     setTimeout(resolve, 3000);
-  });
+  }); // для имитации загрузки
   const response = fetch(
     'https://stoplight.io/mocks/kode-education/kode-bank/27774162/api/auth/confirm',
     {

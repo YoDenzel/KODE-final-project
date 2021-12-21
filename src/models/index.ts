@@ -48,6 +48,8 @@ export {
   resetAmountOfTries,
   resetOtp,
   resetPhone,
+  $guestToken,
+  addGuestToken,
 } from './auth';
 
 export type { Snack, TServices, ItemsType, TCategories } from './types';

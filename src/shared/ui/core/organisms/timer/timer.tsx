@@ -17,13 +17,19 @@ interface TTimer {
   title: string;
   seconds: number;
   minutes: number;
+  sendRequestAgaing: Function;
 }
 
-export const Timer = ({ title, minutes, seconds }: TTimer) => {
+export const Timer = ({
+  title,
+  minutes,
+  seconds,
+  sendRequestAgaing,
+}: TTimer) => {
   return (
     <Wrapper>
       {minutes === 0 && seconds === 0 ? (
-        <ResendOtpButton title={title} />
+        <ResendOtpButton title={title} sendRequestAgain={sendRequestAgaing} />
       ) : (
         <Title variant="caption1">{`Повторить через ${minutes} : ${
           seconds < 10 ? '0' + seconds : seconds

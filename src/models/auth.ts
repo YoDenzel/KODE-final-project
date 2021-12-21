@@ -23,6 +23,10 @@ $inputPhone.on(deleteLastChar, state => {
   return setInputPhone(res);
 });
 
+export const resetPhone = createEvent();
+
+$inputPhone.reset(resetPhone);
+
 export const $postAuthId = createStore<TPostAuth>('');
 
 export const setPostAuthId = createEvent<TPostAuth>();
@@ -37,7 +41,7 @@ $postAuthCode.on(setPostAuthCode, (_, payload) => payload);
 
 export const setTimerMinutes = createEvent<number>();
 
-export const $timerMinutes = restore(setTimerMinutes, 3);
+export const $timerMinutes = restore(setTimerMinutes, 1);
 
 export const setTimerSeconds = createEvent<number>();
 
@@ -63,8 +67,24 @@ $inputOtp.on(deleteLastChar, state => {
   return setInputOtp(res);
 });
 
+export const resetOtp = createEvent();
+
+$inputOtp.reset(resetOtp);
+
 export const $isPageOtp = createStore<boolean>(true);
 
 export const setIsPageOtp = createEvent<boolean>();
 
 $isPageOtp.on(setIsPageOtp, (_, payload) => payload);
+
+export const setAmountOfTries = createEvent<number>();
+
+export const $amountOfTries = createStore(5);
+
+$amountOfTries.on(setAmountOfTries, (state, payload) => {
+  return state - payload;
+});
+
+export const resetAmountOfTries = createEvent();
+
+$amountOfTries.reset(resetAmountOfTries);

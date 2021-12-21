@@ -14,11 +14,15 @@ const Title = styled(Typography)`
 
 interface TResendOtpButton {
   title: string;
+  sendRequestAgain: Function;
 }
 
-export const ResendOtpButton = ({ title }: TResendOtpButton) => {
+export const ResendOtpButton = ({
+  title,
+  sendRequestAgain,
+}: TResendOtpButton) => {
   return (
-    <Wrapper onPress={() => resetTimer()}>
+    <Wrapper onPress={() => sendRequestAgain()}>
       <Title variant="caption1">{title}</Title>
     </Wrapper>
   );

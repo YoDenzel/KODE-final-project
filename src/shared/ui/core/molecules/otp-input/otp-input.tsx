@@ -1,7 +1,7 @@
 import { styled } from '@shared/ui/theme';
 import { useStore } from 'effector-react';
 import { $inputOtp } from '../../../../../models';
-import { TextInput } from 'react-native';
+import { TextInput, Text } from 'react-native';
 import { Typography } from '../../atoms';
 
 const OtpContainer = styled.View`
@@ -21,11 +21,14 @@ const Title = styled(Typography)`
 
 const Dash = styled(Typography)`
   align-self: center;
-  padding-right: ${({ theme }) => theme.spacing(1) + 2}px;
+  padding-right: ${({ theme }) => theme.spacing(1.25)}px;
 `;
 
-export const OtpInput = () => {
-  const otp = useStore($inputOtp);
+interface TOtpInput {
+  otp: string;
+}
+
+export const OtpInput = ({ otp }: TOtpInput) => {
   let randomInt = Math.random();
   return (
     <>

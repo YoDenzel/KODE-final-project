@@ -14,6 +14,7 @@ type TData = {
 };
 
 type TParams = {
+  name: string;
   params: TData;
 };
 

@@ -42,6 +42,11 @@ export {
   setInputOtp,
   $isPageOtp,
   setIsPageOtp,
+  $amountOfTries,
+  setAmountOfTries,
+  resetAmountOfTries,
+  resetOtp,
+  resetPhone,
 } from './auth';
 
 export type { Snack, TServices, ItemsType, TCategories } from './types';

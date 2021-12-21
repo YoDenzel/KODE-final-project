@@ -1,4 +1,5 @@
 import { styled } from '@shared/ui/theme';
+import { ActivityIndicator } from 'react-native';
 import { Typography } from '../../atoms';
 import { OtpInput } from '../../molecules';
 
@@ -13,16 +14,48 @@ const Title = styled(Typography)`
   align-self: center;
 `;
 
+const Error = styled(Typography)`
+  text-align: center;
+  padding-right: ${({ theme }) => theme.spacing(1.25)}px;
+  color: ${({ theme }) => theme.palette.indicator.error};
+  margin-top: ${({ theme }) => theme.spacing(1)}px;
+`;
+
+const Loading = styled(ActivityIndicator)`
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+`;
+
 interface TOtpBlock {
   title: string;
+  otp: string;
+  errorText: string;
+  loading: boolean;
+  amountOfTries: number;
 }
 
-export const OtpBlock = ({ title }: TOtpBlock) => {
+export const OtpBlock = ({
+  title,
+  otp,
+  errorText,
+  loading,
+  amountOfTries,
+}: TOtpBlock) => {
   return (
     <>
       <Wrapper>
-        <Title variant="body15Regular">{title}</Title>
-        <OtpInput />
+        {!loading ? (
+          <>
+            <Title variant="body15Regular">{title}</Title>
+            <OtpInput otp={otp} />
+            {amountOfTries < 5 ? (
+              <Error variant="caption2">{errorText}</Error>
+            ) : null}
+          </>
+        ) : (
+          <Loading color={'#fff'} size={'large'} />
+        )}
       </Wrapper>
     </>
   );

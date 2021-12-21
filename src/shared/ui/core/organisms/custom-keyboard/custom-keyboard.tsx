@@ -15,6 +15,7 @@ interface TCustomKeyboard {
   phoneInputClicked: boolean;
   randomKey: Function;
   isOtp: boolean;
+  loading?: boolean;
 }
 
 export const CustomKeyboard = ({
@@ -22,18 +23,21 @@ export const CustomKeyboard = ({
   phoneInputClicked,
   randomKey,
   isOtp,
+  loading,
 }: TCustomKeyboard) => {
   return phoneInputClicked ? (
     <Wrapper>
-      {keyboardItems.map(item => {
-        return (
-          <CustomKeyboardSingleNumber
-            key={randomKey()}
-            number={item}
-            isOtp={isOtp}
-          />
-        );
-      })}
+      {!loading
+        ? keyboardItems.map(item => {
+            return (
+              <CustomKeyboardSingleNumber
+                key={randomKey()}
+                number={item}
+                isOtp={isOtp}
+              />
+            );
+          })
+        : null}
     </Wrapper>
   ) : null;
 };

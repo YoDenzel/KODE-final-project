@@ -25,7 +25,7 @@ import {
   snackLifeTimeFx,
 } from './../../../../models';
 
-export const PhoneAuthPageConnector = ({ navigation }: TRoute) => {
+export const PhoneAuthPageConnector = ({ navigation, route }: TRoute) => {
   const { mutateAsync, isLoading, data, status } = usePostAuthOtp();
   const [phoneInputClicked, setPhoneInputClicked] = useState(false);
   const inputPhone = useStore($inputPhone);
@@ -36,7 +36,6 @@ export const PhoneAuthPageConnector = ({ navigation }: TRoute) => {
   const snacksStorage = useStore($snacks);
   const has = useStore($hasSnack);
   const randomKey = () => Math.random();
-
   const queueForSnacks = () => {
     if (has) {
       setTimeout(checkCondition, 3600);
@@ -64,8 +63,11 @@ export const PhoneAuthPageConnector = ({ navigation }: TRoute) => {
   };
 
   useEffect(() => {
-    setIsPageAuth(true);
     setIsPageOtp(false);
+  }, [route]);
+
+  useEffect(() => {
+    setIsPageAuth(true);
     setPostAuthCode(data?.otpCode);
     setPostAuthId(data?.otpId);
     if (status === 'success') {

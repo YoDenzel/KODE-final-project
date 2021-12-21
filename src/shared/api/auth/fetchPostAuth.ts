@@ -1,4 +1,3 @@
-import { setPostAuthCode } from 'models';
 import { OtpResponse, TAuthPost } from '../types';
 
 export const fetchPostAuth = async ({

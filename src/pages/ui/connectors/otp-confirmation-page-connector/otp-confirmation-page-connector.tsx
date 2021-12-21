@@ -1,7 +1,9 @@
+import { useEffect, useState } from 'react';
+import { Alert } from 'react-native';
+import { useStore } from 'effector-react';
 import { DeleteLastSymbol } from '@shared/ui/core/molecules';
 import { Timer } from '@shared/ui/core/organisms';
 import { OtpConfirmationPage } from '@shared/ui/core/pages/otp-confirmation-page';
-import { useStore } from 'effector-react';
 import {
   $timerMinutes,
   $timerSeconds,
@@ -17,16 +19,19 @@ import {
   resetOtp,
   $amountOfTries,
   resetAmountOfTries,
+  $postAuthId,
 } from '../../../../models';
-import { useEffect, useState } from 'react';
+
 import { usePostAuthOtp } from '@shared/hooks/use-post-auth-otp';
-import { Alert } from 'react-native';
+
 import { TRoute } from '../confirmation-page-connector/types';
+import { usePostAuthConfirm } from '@shared/hooks';
+import { createEvent, createStore } from 'effector';
 
 export const OtpConfirmationPageConnector = ({ navigation, route }: TRoute) => {
-  const { mutateAsync, data, status } = usePostAuthOtp();
+  const { mutateAsync } = usePostAuthOtp();
+  const { mutateAsync: mutate, data, isLoading } = usePostAuthConfirm();
   const inputPhone = useStore($inputPhone);
-  const [loading, setLoading] = useState(false);
   const otp = useStore($inputOtp);
   const minutes = useStore($timerMinutes);
   const seconds = useStore($timerSeconds);
@@ -35,6 +40,16 @@ export const OtpConfirmationPageConnector = ({ navigation, route }: TRoute) => {
   const amountOfTries = useStore($amountOfTries);
   const randomKey = () => Math.random();
   const phoneInputClicked = true;
+  const otpCode = useStore($postAuthCode);
+  const otpId = useStore($postAuthId);
+
+  const $guestToken = createStore<string | undefined>('');
+
+  const addGuestToken = createEvent<string | undefined>();
+
+  $guestToken.on(addGuestToken, (_, payload) => payload);
+
+  addGuestToken(data?.guestToken);
 
   const errorNavigation = () => {
     navigation.navigate('phoneAuth', {});
@@ -80,15 +95,15 @@ export const OtpConfirmationPageConnector = ({ navigation, route }: TRoute) => {
 
   useEffect(() => {
     if (otp.length === 4) {
-      setLoading(true);
       if (otp !== authCode) {
         setAmountOfTries(1);
         if (amountOfTries === 1) {
           errorAlert();
         }
+      } else {
+        mutate({ inputPhone, otpCode, otpId });
       }
       resetOtp();
-      setLoading(false);
     }
   }, [otp]);
 
@@ -121,7 +136,7 @@ export const OtpConfirmationPageConnector = ({ navigation, route }: TRoute) => {
         title: 'На ваш номер отправлено SMS с кодом подтверждения',
         otp: otp,
         errorText: `Неверный код. Осталось ${amountOfTries} попытки`,
-        loading: loading,
+        loading: isLoading,
         amountOfTries: amountOfTries,
       }}
       customKeyboard={{
@@ -129,7 +144,7 @@ export const OtpConfirmationPageConnector = ({ navigation, route }: TRoute) => {
         phoneInputClicked: phoneInputClicked,
         randomKey: randomKey,
         isOtp: isOtp,
-        loading: loading,
+        loading: isLoading,
       }}
     />
   );

@@ -39,3 +39,13 @@ export type OtpResponse = {
   otpId: string;
   otpLen: number;
 };
+
+export type ConfirmResponse = {
+  guestToken: string;
+};
+
+export type TConfirmPost = {
+  otpCode: string | undefined;
+  otpId: string | undefined;
+  inputPhone: string;
+};

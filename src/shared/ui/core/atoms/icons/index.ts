@@ -13,6 +13,8 @@ import { PostRequestAccepted } from './post-request-accepted/post-request-accept
 import { KodeLogo } from './kode-logo/kode-logo';
 import { Backspace } from './backspace/backspace';
 import { Telephone } from './telephone/telephone';
+import { PasswordVisible } from './password-visible/password-visible';
+import { ShowPassword } from './show-password/show-password';
 
 export const Icons = {
   ArrowGoBack,
@@ -30,4 +32,6 @@ export const Icons = {
   KodeLogo,
   Backspace,
   Telephone,
+  PasswordVisible,
+  ShowPassword,
 };

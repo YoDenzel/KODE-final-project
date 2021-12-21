@@ -7,6 +7,10 @@ storiesOf('ui/molecules', module).add('phone-number-input', () => {
       input={''}
       setInput={() => {}}
       items_icon="https://github.com/kode-frontend/files/raw/main/MTS.png"
+      placeholderText={''}
+      isPageAuth={false}
+      setPhoneInputClicked={() => void 0}
+      phoneInputClicked={false}
     />
   );
 });

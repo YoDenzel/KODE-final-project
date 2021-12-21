@@ -83,7 +83,7 @@ export const PhoneAuthPageConnector = ({ navigation, route }: TRoute) => {
       setPhoneInputClick={setPhoneInputClicked}
     />,
     '0',
-    <DeleteLastSymbol />,
+    <DeleteLastSymbol route={route} />,
   ];
 
   return (

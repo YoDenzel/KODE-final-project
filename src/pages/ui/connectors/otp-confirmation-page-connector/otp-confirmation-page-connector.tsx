@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { Alert } from 'react-native';
 import { useStore } from 'effector-react';
 import { DeleteLastSymbol } from '@shared/ui/core/molecules';
@@ -18,10 +18,9 @@ import {
   $amountOfTries,
   resetAmountOfTries,
   $postAuthId,
+  resetPhone,
 } from '../../../../models';
-
 import { usePostAuthOtp } from '@shared/hooks/use-post-auth-otp';
-
 import { TRoute } from '../confirmation-page-connector/types';
 import { usePostAuthConfirm } from '@shared/hooks';
 import { createEvent, createStore } from 'effector';
@@ -50,6 +49,7 @@ export const OtpConfirmationPageConnector = ({ navigation, route }: TRoute) => {
 
   const errorNavigation = () => {
     navigation.navigate('phoneAuth', {});
+    resetPhone();
   };
 
   const errorAlert = () => {
@@ -87,7 +87,7 @@ export const OtpConfirmationPageConnector = ({ navigation, route }: TRoute) => {
       sendRequestAgaing={sendRequestAgain}
     />,
     '0',
-    <DeleteLastSymbol />,
+    <DeleteLastSymbol route={route} />,
   ];
 
   useEffect(() => {

@@ -7,7 +7,7 @@ export const setIsPageAuth = createEvent<boolean>();
 
 export const setInputPhone = createEvent<string>();
 
-export const deleteLastChar = createEvent<string>();
+export const deleteLastCharPhone = createEvent<string>();
 
 export const $inputPhone = createStore<string>('');
 
@@ -17,7 +17,7 @@ $inputPhone.on(setInputPhone, (prevState, payload) => {
   return prevState + payload;
 });
 
-$inputPhone.on(deleteLastChar, state => {
+$inputPhone.on(deleteLastCharPhone, state => {
   let i = state.length - 1;
   const res = state.slice(0, i);
   return setInputPhone(res);
@@ -57,11 +57,13 @@ export const $inputOtp = createStore<string>('');
 
 export const setInputOtp = createEvent<string>();
 
+export const deleteLastCharOtp = createEvent<string>();
+
 $inputOtp.on(setInputOtp, (prevState, payload) => {
   return prevState + payload;
 });
 
-$inputOtp.on(deleteLastChar, state => {
+$inputOtp.on(deleteLastCharOtp, state => {
   let i = state.length - 1;
   const res = state.slice(0, i);
   return setInputOtp(res);

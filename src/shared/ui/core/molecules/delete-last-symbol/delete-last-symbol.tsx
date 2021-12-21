@@ -1,5 +1,5 @@
 import { styled } from '@shared/ui/theme';
-import { deleteLastChar } from '../../../../../models';
+import { deleteLastCharOtp, deleteLastCharPhone } from '../../../../../models';
 import { TouchableOpacity } from 'react-native';
 import { Icons } from '../../atoms';
 
@@ -8,11 +8,19 @@ const Wrapper = styled(TouchableOpacity)`
   align-items: center;
 `;
 
-export const DeleteLastSymbol = () => {
+interface TDeleteLastSymbol {
+  route: {
+    name: string;
+  };
+}
+
+export const DeleteLastSymbol = ({ route }: TDeleteLastSymbol) => {
   return (
     <Wrapper
       onPress={() => {
-        deleteLastChar('');
+        route.name === 'phoneAuth'
+          ? deleteLastCharPhone('')
+          : deleteLastCharOtp('');
       }}
     >
       <Icons.Backspace />

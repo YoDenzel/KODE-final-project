@@ -54,9 +54,6 @@ export const OtpConfirmationPageConnector = ({ navigation, route }: TRoute) => {
   const successPostGuestToken = () => {
     mutate({ inputPhone, otpCode, otpId });
     resetAmountOfTries();
-    if (status === 'success') {
-      navigation.navigate('passwordAuth', {});
-    }
   };
 
   const errorAlert = () => {
@@ -109,7 +106,10 @@ export const OtpConfirmationPageConnector = ({ navigation, route }: TRoute) => {
       }
       resetOtp();
     }
-  }, [otp]);
+    if (status === 'success') {
+      navigation.navigate('passwordAuth', {});
+    }
+  }, [otp, status]);
 
   useEffect(() => {
     let myInterval = setInterval(() => {

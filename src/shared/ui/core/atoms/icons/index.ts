@@ -13,8 +13,8 @@ import { PostRequestAccepted } from './post-request-accepted/post-request-accept
 import { KodeLogo } from './kode-logo/kode-logo';
 import { Backspace } from './backspace/backspace';
 import { Telephone } from './telephone/telephone';
-import { PasswordVisible } from './password-visible/password-visible';
 import { ShowPassword } from './show-password/show-password';
+import { VisiblePassword } from './visible-password/visible-password';
 import { Lock } from './lock/lock';
 
 export const Icons = {
@@ -33,7 +33,7 @@ export const Icons = {
   KodeLogo,
   Backspace,
   Telephone,
-  PasswordVisible,
+  VisiblePassword,
   ShowPassword,
   Lock,
 };

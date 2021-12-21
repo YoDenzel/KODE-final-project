@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { ActivityIndicator, Keyboard, TouchableOpacity } from 'react-native';
-import { Icons, Typography } from '../../atoms';
+import { TouchableOpacity } from 'react-native';
+import { Icons } from '../../atoms';
 import { styled } from '@shared/ui/theme';
 
 export const Wrapper = styled.View`
@@ -58,7 +58,6 @@ export const PasswordInput: React.FC<TProps> = ({
   setPasswordShow,
 }) => {
   const [placeholder, setPlaceholder] = useState(placeholderText);
-  let clicked = false;
 
   return (
     <Container>
@@ -71,7 +70,7 @@ export const PasswordInput: React.FC<TProps> = ({
             placeholder={placeholder}
             placeholderTextColor="#706D76"
             selectionColor="#6C78E6"
-            value={'123'}
+            value={input}
             onChangeText={setInput}
             onFocus={() => {
               setPlaceholder('');
@@ -81,7 +80,7 @@ export const PasswordInput: React.FC<TProps> = ({
         </PhoneInputContainer>
 
         <IconBlock onPress={() => setPasswordShow(!passwordShow)}>
-          {passwordShow ? <Icons.ShowPassword /> : <Icons.PasswordVisible />}
+          {passwordShow ? <Icons.ShowPassword /> : <Icons.VisiblePassword />}
         </IconBlock>
       </Wrapper>
     </Container>

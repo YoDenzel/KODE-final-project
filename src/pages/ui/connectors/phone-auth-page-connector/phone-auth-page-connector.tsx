@@ -107,7 +107,6 @@ export const PhoneAuthPageConnector = ({ navigation, route }: TRoute) => {
       customKeyboard={{
         keyboardItems: keyboardItems,
         phoneInputClicked: phoneInputClicked,
-        randomKey: randomKey,
         isOtp: route.name,
       }}
       snackBar={{

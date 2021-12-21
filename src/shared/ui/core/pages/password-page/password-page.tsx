@@ -25,7 +25,7 @@ export const PasswordPage = ({
 }: TPhoneAuthPage) => {
   return (
     <PhoneAuthTemplate
-      cancelAuth={<CancelAuth />}
+      cancelAuth={<CancelAuth {...cancelAuth} />}
       snackBar={<MappedSnackBar {...snackBar} />}
       kodeLogo={<KodeLogoMolecule />}
       phoneInput={<PasswordInput {...passwordInput} />}

@@ -11,6 +11,8 @@ storiesOf('ui/pages', module).add('password-page', () => {
         input: '123',
         setInput: () => void 0,
         placeholderText: 'Пароль',
+        setPasswordShow: () => void 0,
+        passwordShow: true,
       }}
       snackBar={{
         snack: [],

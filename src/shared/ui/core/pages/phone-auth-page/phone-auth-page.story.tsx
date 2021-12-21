@@ -16,13 +16,13 @@ storiesOf('ui/pages', module).add('phone-auth-page', () => {
         placeholderText: 'Телефон',
         isPageAuth: true,
         setPhoneInputClicked: () => void 0,
-        phoneInputClicked: true,
+        phoneInputClicked: false,
       }}
       kodeLogo
       customKeyboard={{
-        isOtp: false,
+        isOtp: '',
         randomKey: () => void 0,
-        phoneInputClicked: true,
+        phoneInputClicked: false,
         keyboardItems: [
           '1',
           '2',
@@ -38,7 +38,11 @@ storiesOf('ui/pages', module).add('phone-auth-page', () => {
             setPhoneInputClick={() => void 0}
           />,
           '0',
-          <DeleteLastSymbol />,
+          <DeleteLastSymbol
+            route={{
+              name: '',
+            }}
+          />,
         ],
       }}
       snackBar={{ snack: [], success: true }}

@@ -1,5 +1,6 @@
 import { styled } from '@shared/ui/theme';
 import { ReactNode } from 'react';
+import { KeyboardAvoidingView } from 'react-native';
 
 const Background = styled.View`
   background-color: ${({ theme }) => theme.palette.background.secondary};
@@ -11,7 +12,7 @@ const Flex1 = styled.View`
 `;
 
 interface TPhoneAuthTemplate {
-  quitButton?: ReactNode;
+  cancelAuth?: ReactNode;
   kodeLogo: ReactNode;
   submitButtton: ReactNode;
   phoneInput: ReactNode;
@@ -25,18 +26,20 @@ export const PhoneAuthTemplate = ({
   phoneInput,
   customKeyboard,
   snackBar,
-  quitButton,
+  cancelAuth,
 }: TPhoneAuthTemplate) => {
   return (
     <>
       <Background>
         <Flex1 />
-        {quitButton}
+        {cancelAuth}
         {kodeLogo}
         {phoneInput}
         <Flex1 />
-        {submitButtton}
-        {customKeyboard}
+        <KeyboardAvoidingView behavior="padding" keyboardVerticalOffset={100}>
+          {submitButtton}
+          {customKeyboard}
+        </KeyboardAvoidingView>
         {snackBar}
       </Background>
     </>

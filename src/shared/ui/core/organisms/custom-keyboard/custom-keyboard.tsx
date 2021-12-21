@@ -13,7 +13,6 @@ type TItem = string | JSX.Element;
 interface TCustomKeyboard {
   keyboardItems: Array<TItem>;
   phoneInputClicked: boolean;
-  randomKey: Function;
   isOtp: string;
   loading?: boolean;
 }
@@ -21,17 +20,16 @@ interface TCustomKeyboard {
 export const CustomKeyboard = ({
   keyboardItems,
   phoneInputClicked,
-  randomKey,
   isOtp,
   loading,
 }: TCustomKeyboard) => {
   return phoneInputClicked ? (
     <Wrapper>
       {!loading
-        ? keyboardItems.map(item => {
+        ? keyboardItems.map((item, index) => {
             return (
               <CustomKeyboardSingleNumber
-                key={randomKey()}
+                key={index + 1}
                 number={item}
                 isOtp={isOtp}
               />

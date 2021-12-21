@@ -21,3 +21,4 @@ export {HideKeyboardButton} from './hide-keyboard-button'
 export {OtpInput} from './otp-input'
 export {ResendOtpButton} from './resend-otp-button'
 export { PasswordInput } from './password-input';
+export {CancelAuth} from './cancel-auth'

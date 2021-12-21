@@ -24,13 +24,7 @@ const PhoneInputContainer = styled.View`
   align-items: center;
 `;
 
-const CompanyImg = styled.Image`
-  width: ${({ theme }) => theme.spacing(3)}px;
-  height: ${({ theme }) => theme.spacing(3)}px;
-  margin-left: ${({ theme }) => theme.spacing(2)}px;
-`;
-
-const TelephoneImg = styled.View`
+const LockImg = styled.View`
   margin-left: ${({ theme }) => theme.spacing(2)}px;
 `;
 
@@ -41,13 +35,6 @@ export const Input = styled.TextInput`
   margin-left: ${({ theme }) => theme.spacing(3)}px;
   height: ${({ theme }) => theme.spacing(4)}px;
   font-family: SF_PRO_REGULAR_400;
-`;
-
-const CountryCode = styled(Typography)<{ hasSnacks: boolean | undefined }>`
-  position: absolute;
-  margin-left: ${({ theme }) => theme.spacing(7)}px;
-  color: ${({ hasSnacks, theme }) =>
-    !hasSnacks ? '#fff' : theme.palette.indicator.error};
 `;
 
 const IconBlock = styled(TouchableOpacity)`
@@ -67,14 +54,15 @@ export const PasswordInput: React.FC<TProps> = ({
   placeholderText,
 }) => {
   const [placeholder, setPlaceholder] = useState(placeholderText);
+  const [clicked, setClicked] = useState<boolean>(true);
 
   return (
     <Container>
       <Wrapper>
         <PhoneInputContainer>
-          <TelephoneImg>
-            <Icons.Telephone />
-          </TelephoneImg>
+          <LockImg>
+            <Icons.Lock />
+          </LockImg>
           <Input
             placeholder={placeholder}
             placeholderTextColor="#706D76"
@@ -84,12 +72,12 @@ export const PasswordInput: React.FC<TProps> = ({
             onFocus={() => {
               setPlaceholder('');
             }}
-            secureTextEntry={true}
+            secureTextEntry={clicked ? false : true}
           />
         </PhoneInputContainer>
 
         <IconBlock onPress={() => setInput('')}>
-          <Icons.ClearPhoneInput />
+          {clicked ? <Icons.ShowPassword /> : <Icons.PasswordVisible />}
         </IconBlock>
       </Wrapper>
     </Container>

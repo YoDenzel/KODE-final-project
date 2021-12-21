@@ -4,12 +4,12 @@ import { Typography } from '../../atoms';
 import { OtpInput } from '../../molecules';
 
 const Wrapper = styled.View`
-  margin-bottom: ${({ theme }) => theme.spacing(2)}px;
+  margin-bottom: ${({ theme }) => theme.spacing(1.5)}px;
 `;
 
 const Title = styled(Typography)`
   text-align: center;
-  padding-bottom: ${({ theme }) => theme.spacing(3)}px;
+  padding-bottom: ${({ theme }) => theme.spacing(2)}px;
   width: 50%;
   align-self: center;
 `;

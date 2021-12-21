@@ -7,10 +7,13 @@ storiesOf('ui/pages', module).add('otp-confirmation-page', () => {
     <OtpConfirmationPage
       otpInput={{
         title: 'На ваш номер отправлено SMS с кодом подтверждения',
+        amountOfTries: 2,
+        errorText: 'Попробуйте еще раз',
+        loading: false,
+        otp: '12',
       }}
       customKeyboard={{
-        isOtp: true,
-        randomKey: () => void 0,
+        isOtp: 'true',
         phoneInputClicked: true,
         keyboardItems: [
           '1',
@@ -27,7 +30,11 @@ storiesOf('ui/pages', module).add('otp-confirmation-page', () => {
             setPhoneInputClick={() => void 0}
           />,
           '0',
-          <DeleteLastSymbol />,
+          <DeleteLastSymbol
+            route={{
+              name: '',
+            }}
+          />,
         ],
       }}
     />

@@ -15,6 +15,7 @@ import { Backspace } from './backspace/backspace';
 import { Telephone } from './telephone/telephone';
 import { PasswordVisible } from './password-visible/password-visible';
 import { ShowPassword } from './show-password/show-password';
+import { Lock } from './lock/lock';
 
 export const Icons = {
   ArrowGoBack,
@@ -34,4 +35,5 @@ export const Icons = {
   Telephone,
   PasswordVisible,
   ShowPassword,
+  Lock,
 };

@@ -1,7 +1,7 @@
 import { TBaseIconProps } from '@shared/ui/icons/types';
 import Svg, { Path } from 'react-native-svg';
 
-export const PasswordVisible = ({ size, color }: TBaseIconProps) => (
+export const PasswordVisible = ({ size = 24, color }: TBaseIconProps) => (
   <Svg width={size} height={size} fill="none">
     <Path
       fillRule="evenodd"

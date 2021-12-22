@@ -14,7 +14,7 @@ export const fetchPostAuthConfirm = async ({
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        Prefer: 'code=200',
+        Prefer: 'code=400',
       },
       body: `{"otpId":${otpId},"phone":"+7${inputPhone} ","otpCode":${otpCode}}`,
     },

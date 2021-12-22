@@ -93,6 +93,7 @@ export const OtpConfirmationPageConnector = ({ navigation, route }: TRoute) => {
     if (otp.length === 4) {
       if (otp !== authCode) {
         setAmountOfTries(1);
+        resetOtp();
         if (amountOfTries === 1) {
           errorAlert();
         }
@@ -106,6 +107,9 @@ export const OtpConfirmationPageConnector = ({ navigation, route }: TRoute) => {
     if (otp.length === 4) {
       if (status === 'success') {
         navigation.navigate('passwordAuth', {});
+        resetOtp();
+      } else if (status === 'error') {
+        navigation.navigate('error', {});
         resetOtp();
       }
     }

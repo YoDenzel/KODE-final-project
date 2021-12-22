@@ -1,5 +1,5 @@
-import { styled } from '@shared/ui/theme';
 import { FlatList } from 'react-native';
+import { styled } from '@shared/ui/theme';
 import { ConfirmationInfo } from '../../molecules';
 
 const List = styled(FlatList)`
@@ -18,8 +18,10 @@ export const ConfirmationList = ({ list }: TConfirmationList) => {
     <List
       data={list}
       keyExtractor={item => item.title}
-      renderItem={({ item }) => {
-        return <ConfirmationInfo title={item.title} info={item.info} />;
+      renderItem={({ item, index }) => {
+        return (
+          <ConfirmationInfo title={item.title} info={item.info} index={index} />
+        );
       }}
     />
   );

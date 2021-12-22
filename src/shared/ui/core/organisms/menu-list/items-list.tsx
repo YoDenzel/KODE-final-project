@@ -1,5 +1,5 @@
-import { TCategories } from 'models';
 import { FlatList } from 'react-native';
+import { TCategories } from 'models';
 import { MenuItem } from '../../molecules';
 
 interface TListProps {

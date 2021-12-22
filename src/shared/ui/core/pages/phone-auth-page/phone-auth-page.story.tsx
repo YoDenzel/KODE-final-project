@@ -21,7 +21,6 @@ storiesOf('ui/pages', module).add('phone-auth-page', () => {
       kodeLogo
       customKeyboard={{
         isOtp: '',
-        randomKey: () => void 0,
         phoneInputClicked: false,
         keyboardItems: [
           '1',

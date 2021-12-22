@@ -1,5 +1,5 @@
-import { styled } from '@shared/ui/theme';
 import { View } from 'react-native';
+import { styled } from '@shared/ui/theme';
 import { Typography } from '../../atoms';
 
 const Touch = styled.TouchableOpacity`

@@ -1,5 +1,5 @@
-import { styled } from '@shared/ui/theme';
 import { storiesOf } from '@storybook/react-native';
+import { styled } from '@shared/ui/theme';
 import { OtpBlock } from './otp-block';
 
 const Wrapper = styled.View`
@@ -12,7 +12,13 @@ const Wrapper = styled.View`
 storiesOf('ui/organisms', module).add('otp-block', () => {
   return (
     <Wrapper>
-      <OtpBlock title={'На ваш номер отправлено SMS с кодом подтверждения'} />
+      <OtpBlock
+        title={'На ваш номер отправлено SMS с кодом подтверждения'}
+        otp={''}
+        errorText={''}
+        loading={false}
+        amountOfTries={0}
+      />
     </Wrapper>
   );
 });

@@ -1,14 +1,9 @@
 import { usePostHistory } from '@shared/hooks';
 import { ConfirmationPage } from '@shared/ui/core/pages/confirmation-page';
-import { useStore } from 'effector-react';
-import {
-  $postHistorySuccess,
-  setPostHistorySuccess,
-} from './../../../../models';
 import { TRoute } from './types';
 
 export const ConfirmationPageConnector = ({ route, navigation }: TRoute) => {
-  const { mutateAsync, isLoading } = usePostHistory();
+  const { mutateAsync, isLoading, isError } = usePostHistory();
 
   const items = route.params.data;
   const names = [
@@ -27,14 +22,14 @@ export const ConfirmationPageConnector = ({ route, navigation }: TRoute) => {
   const random_name = names[getRandomIntInclusive(0, 3)];
 
   const checkConditions = () => {
-    navigation?.navigate('acceptedDeclined', {
-      data: items.inputMoney,
-      isLoading,
-    });
     mutateAsync({
       id: items.item.id,
       inputMoney: items.inputMoney,
       CASHBACK_SUM: items.CASHBACK_SUM,
+    });
+    navigation?.navigate('acceptedDeclined', {
+      data: items.inputMoney,
+      isLoading,
     });
   };
 

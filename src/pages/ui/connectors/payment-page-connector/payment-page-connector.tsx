@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-import { sample } from 'effector';
 import { useStore } from 'effector-react';
 import {
   $snacks,

@@ -3,7 +3,7 @@ import { THistoryPost } from '@shared/api/types';
 
 import { useMutation, useQueryClient } from 'react-query';
 
-const UPDATE_QUERY_KEY = 'categories';
+const UPDATE_QUERY_KEY = 'history';
 
 export const usePostHistory = () => {
   const queryClient = useQueryClient();

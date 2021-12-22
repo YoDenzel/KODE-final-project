@@ -1,5 +1,5 @@
-import { styled } from '@shared/ui/theme';
 import { storiesOf } from '@storybook/react-native';
+import { styled } from '@shared/ui/theme';
 import { HideKeyboardButton } from './hide-keyboard-button';
 
 const Wrapper = styled.View`

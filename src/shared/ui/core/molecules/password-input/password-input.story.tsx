@@ -7,6 +7,8 @@ storiesOf('ui/molecules', module).add('password-input', () => {
       input="yo"
       setInput={() => void 0}
       placeholderText="Пароль"
+      passwordShow={true}
+      setPasswordShow={() => void 0}
     />
   );
 });

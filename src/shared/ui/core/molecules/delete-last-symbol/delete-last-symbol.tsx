@@ -1,7 +1,7 @@
-import { styled } from '@shared/ui/theme';
-import { deleteLastCharOtp, deleteLastCharPhone } from '../../../../../models';
 import { TouchableOpacity } from 'react-native';
+import { styled } from '@shared/ui/theme';
 import { Icons } from '../../atoms';
+import { deleteLastCharOtp, deleteLastCharPhone } from '../../../../../models';
 
 const Wrapper = styled(TouchableOpacity)`
   justify-content: center;

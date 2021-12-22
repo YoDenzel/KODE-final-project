@@ -9,7 +9,7 @@ const Wrapper = styled.View`
 storiesOf('ui/molecules', module).add('custom-keyboard-single-number', () => {
   return (
     <Wrapper>
-      <CustomKeyboardSingleNumber number="1" />
+      <CustomKeyboardSingleNumber number="1" isOtp="yo" />
     </Wrapper>
   );
 });

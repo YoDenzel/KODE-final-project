@@ -6,12 +6,13 @@ const Wrapper = styled.View`
   background-color: ${({ theme }) => theme.palette.background.primary};
   justify-content: center;
   align-items: center;
+  flex: 1;
 `;
 
 storiesOf('ui/molecules', module).add('cancel-auth', () => {
   return (
     <Wrapper>
-      <CancelAuth />
+      <CancelAuth quit={() => void 0} />
     </Wrapper>
   );
 });

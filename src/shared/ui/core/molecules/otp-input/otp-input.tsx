@@ -1,5 +1,5 @@
+import { TextInput } from 'react-native';
 import { styled } from '@shared/ui/theme';
-import { TextInput, Text, View } from 'react-native';
 import { Typography } from '../../atoms';
 
 const OtpContainer = styled.View`
@@ -51,15 +51,11 @@ export const OtpInput = ({ otp }: TOtpInput) => {
       <OtpContainer>
         {[0, 1, 2, 3].map((item, index) => (
           <>
-            <Wrapper key={index}>
+            <Wrapper key={randomInt}>
               <Title>{otp[item]}</Title>
               {index === otp.length ? <Border /> : null}
             </Wrapper>
-            {index === 1 ? (
-              <Dash key={randomInt} variant="subtitle">
-                -
-              </Dash>
-            ) : null}
+            {index === 1 ? <Dash variant="subtitle">-</Dash> : null}
           </>
         ))}
       </OtpContainer>

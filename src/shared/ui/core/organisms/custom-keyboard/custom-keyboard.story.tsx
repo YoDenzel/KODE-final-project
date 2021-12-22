@@ -21,9 +21,13 @@ storiesOf('ui/organisms', module).add('custom-keyboard', () => {
           setPhoneInputClick={() => void 0}
         />,
         '0',
-        <DeleteLastSymbol />,
+        <DeleteLastSymbol
+          route={{
+            name: '',
+          }}
+        />,
       ]}
-      randomKey={() => void 0}
+      isOtp="yo"
     />
   );
 });

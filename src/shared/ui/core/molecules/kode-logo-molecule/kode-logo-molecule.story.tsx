@@ -1,5 +1,5 @@
-import { styled } from '@shared/ui/theme';
 import { storiesOf } from '@storybook/react-native';
+import { styled } from '@shared/ui/theme';
 import { KodeLogoMolecule } from '.';
 
 const Wrapper = styled.View`

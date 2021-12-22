@@ -1,7 +1,7 @@
-import { styled } from '@shared/ui/theme';
-import { setInputOtp, setInputPhone } from '../../../../../models';
 import { TouchableOpacity } from 'react-native';
+import { styled } from '@shared/ui/theme';
 import { Typography } from '../../atoms';
+import { setInputOtp, setInputPhone } from '../../../../../models';
 
 const Wrapper = styled(TouchableOpacity)`
   flex: 33%;

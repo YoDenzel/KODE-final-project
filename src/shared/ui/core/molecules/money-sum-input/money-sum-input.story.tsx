@@ -1,6 +1,6 @@
+import { storiesOf } from '@storybook/react-native';
 import { Background } from '@pages/ui';
 import { styled } from '@shared/ui/theme';
-import { storiesOf } from '@storybook/react-native';
 import { MoneySumInput } from './money-sum-input';
 
 const Flex1 = styled.View`
@@ -12,7 +12,12 @@ storiesOf('ui/molecules', module).add('money-sum-input', () => {
     <>
       <Flex1 />
       <Background>
-        <MoneySumInput inputMoney={0} setInputMoney={() => {}} />
+        <MoneySumInput
+          inputMoney={0}
+          setInputMoney={() => void 0}
+          clicked={false}
+          setClicked={() => void 0}
+        />
       </Background>
       <Flex1 />
     </>

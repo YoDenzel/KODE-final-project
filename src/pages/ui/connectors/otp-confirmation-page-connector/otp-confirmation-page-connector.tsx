@@ -24,7 +24,6 @@ import {
 import { usePostAuthOtp } from '@shared/hooks/use-post-auth-otp';
 import { TRoute } from '../confirmation-page-connector/types';
 import { usePostAuthConfirm } from '@shared/hooks';
-import { createEvent, createStore } from 'effector';
 
 export const OtpConfirmationPageConnector = ({ navigation, route }: TRoute) => {
   const { mutateAsync } = usePostAuthOtp();
@@ -83,7 +82,7 @@ export const OtpConfirmationPageConnector = ({ navigation, route }: TRoute) => {
       title="Выслать код повторно"
       minutes={minutes}
       seconds={seconds}
-      sendRequestAgaing={sendRequestAgain}
+      sendRequestAgain={sendRequestAgain}
     />,
     '0',
     <DeleteLastSymbol route={route} />,

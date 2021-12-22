@@ -1,5 +1,5 @@
-import { AcceptedDeclinedPage } from '@shared/ui/core/pages';
 import { useStore } from 'effector-react';
+import { AcceptedDeclinedPage } from '@shared/ui/core/pages';
 import { $postHistorySuccess } from './../../../../models';
 
 type TParams = {

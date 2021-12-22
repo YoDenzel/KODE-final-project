@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ActivityIndicator, Keyboard, TouchableOpacity } from 'react-native';
+import { ActivityIndicator,  TouchableOpacity } from 'react-native';
 import { Icons, Typography } from '../../atoms';
 import { styled } from '@shared/ui/theme';
 

@@ -9,7 +9,11 @@ const Wrapper = styled.View`
 storiesOf('ui/molecules', module).add('delete-last-symbol', () => {
   return (
     <Wrapper>
-      <DeleteLastSymbol />
+      <DeleteLastSymbol
+        route={{
+          name: 'yo',
+        }}
+      />
     </Wrapper>
   );
 });

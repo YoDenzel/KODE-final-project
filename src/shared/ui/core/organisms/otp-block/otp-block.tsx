@@ -1,5 +1,5 @@
-import { styled } from '@shared/ui/theme';
 import { ActivityIndicator } from 'react-native';
+import { styled } from '@shared/ui/theme';
 import { Typography } from '../../atoms';
 import { OtpInput } from '../../molecules';
 

@@ -20,6 +20,7 @@ export const fetchPostHistory = async ({
       )},"comment":"string","period_from":"string","period_to":"string"}`,
     },
   );
+
   const data = (await response).json();
   setPostHistorySuccess(await data);
   return data;

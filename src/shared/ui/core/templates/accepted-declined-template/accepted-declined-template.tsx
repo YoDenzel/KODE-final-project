@@ -1,5 +1,5 @@
-import { styled } from '@shared/ui/theme';
 import { ReactNode } from 'react';
+import { styled } from '@shared/ui/theme';
 
 interface TAcceptedDeclinedTemplate {
   acceptedDeclinedText: ReactNode;

@@ -10,7 +10,6 @@ storiesOf('ui/pages', module).add('confirmation-page', () => {
       }}
       submitButton={{
         checkConditions: () => void 0,
-        wayTo: '',
         title: 'Подтвердить ',
       }}
       confirmationCondition={{

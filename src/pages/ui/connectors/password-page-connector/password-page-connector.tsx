@@ -24,7 +24,7 @@ export const PasswordPageConnector = ({ navigation }: TRoute) => {
   const has = useStore($hasSnack);
   const id = Number(Date.now());
   const [guestToken, setGuestToken] = useState<string | null>('');
-  const [status, setStatus] = useState(false);
+  const [status, setStatus] = useState(true);
 
   const fetchCountFromAsyncStorageFx = createEffect({
     async handler() {
@@ -67,7 +67,7 @@ export const PasswordPageConnector = ({ navigation }: TRoute) => {
       });
     } else if (status) {
       navigation.navigate('everythingGood', {});
-    } else {
+    } else if (!status) {
       navigation.navigate('error', {});
       setInput('');
     }
@@ -75,7 +75,6 @@ export const PasswordPageConnector = ({ navigation }: TRoute) => {
 
   const checkCondition = () => {
     passwordValidation();
-    setStatus(true);
     //mutateAsync({ guestToken: guestToken, input: input });
     // постоянно выдает ошибку, что-то с запросом в стоплайте
     // поэтому пока убрал, но если что, то запрос имеется, в async storage // все  кладу.

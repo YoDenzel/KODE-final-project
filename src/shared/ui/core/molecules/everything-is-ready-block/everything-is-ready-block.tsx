@@ -1,6 +1,6 @@
+import { ReactElement } from 'react';
 import { styled } from '@shared/ui/theme';
-import { ElementType, ReactElement } from 'react';
-import { Icons, Typography } from '../../atoms';
+import { Typography } from '../../atoms';
 
 const Wrapper = styled.View`
   justify-content: center;

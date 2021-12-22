@@ -48,7 +48,7 @@ export const $filteredServices = combine(
 
 $services.on(updateServices, (_, payload) => payload);
 
-export const $postHistorySuccess = createStore<boolean>(true);
+export const $postHistorySuccess = createStore<boolean>(false);
 
 export const setPostHistorySuccess = createEvent<boolean>();
 

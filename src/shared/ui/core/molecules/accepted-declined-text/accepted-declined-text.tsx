@@ -12,7 +12,7 @@ const Wrapper = styled.View`
 
 const Title = styled(Typography)`
   color: ${({ theme }) => theme.palette.text.tertiary};
-  margin-top: 16px;
+  margin-top: ${({ theme }) => theme.spacing(2)}px;
 `;
 
 const Info = styled(Typography)`

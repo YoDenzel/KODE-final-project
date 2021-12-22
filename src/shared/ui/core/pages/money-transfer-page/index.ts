@@ -1,1 +1,1 @@
-export { MoneyTransferPageOn } from './money-transfer-page';
+export { MoneyTransferPage } from './money-transfer-page';

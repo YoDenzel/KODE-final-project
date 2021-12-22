@@ -1,5 +1,5 @@
-import { styled } from '@shared/ui/theme';
 import { storiesOf } from '@storybook/react-native';
+import { styled } from '@shared/ui/theme';
 import { MoneyChips } from './money-chips';
 
 const Wrapper = styled.View`

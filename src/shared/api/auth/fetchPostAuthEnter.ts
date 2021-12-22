@@ -1,7 +1,8 @@
+import { setPostAuthAccessRefreshToken } from '../../../models';
 import { EnterResponse, TEnterPost } from '../types';
 
 export const fetchPostAuthEnter = async ({
-  password,
+  input,
   guestToken,
 }: TEnterPost): Promise<EnterResponse> => {
   const response = fetch(
@@ -12,11 +13,11 @@ export const fetchPostAuthEnter = async ({
         'Content-Type': 'application/json',
         Prefer: 'code=200',
       },
-      body: `{"password":${password},"guestToken":${guestToken}}`,
+      body: `{"password":"${input}","guestToken":"${guestToken}"}`,
     },
   );
 
   const data = (await response).json();
-  console.log(await data);
+  setPostAuthAccessRefreshToken(await data);
   return data;
 };

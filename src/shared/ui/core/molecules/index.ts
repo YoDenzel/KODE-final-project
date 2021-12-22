@@ -22,3 +22,4 @@ export {OtpInput} from './otp-input'
 export {ResendOtpButton} from './resend-otp-button'
 export { PasswordInput } from './password-input';
 export {CancelAuth} from './cancel-auth'
+export { EverythingReadyBlock } from './everything-is-ready-block';

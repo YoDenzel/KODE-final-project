@@ -50,6 +50,8 @@ export {
   resetPhone,
   $guestToken,
   addGuestToken,
+  $postAuthAccessRefreshToken,
+  setPostAuthAccessRefreshToken,
 } from './auth';
 
 export type { Snack, TServices, ItemsType, TCategories } from './types';

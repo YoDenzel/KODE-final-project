@@ -9,4 +9,5 @@ export {
   OtpConfirmationPageConnector,
   PhoneAuthPageConnector,
   PasswordPageConnector,
+  EverythingGoodPageConnector,
 } from './connectors';

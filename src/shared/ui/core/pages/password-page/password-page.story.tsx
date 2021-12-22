@@ -4,7 +4,7 @@ import { PasswordPage } from './password-page';
 storiesOf('ui/pages', module).add('password-page', () => {
   return (
     <PasswordPage
-      cancelAuth
+      cancelAuth={{ quit: () => void 0 }}
       submitButton={{ title: 'Войти', checkConditions: () => void 0 }}
       kodeLogo
       passwordInput={{

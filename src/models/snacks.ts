@@ -33,7 +33,7 @@ export const setSuccess = createEvent<boolean>();
 export const $success = restore(setSuccess, false);
 
 export const snackLifeTimeFx = createEffect(() => {
-  $hasSnack ? setTimeout(reset, 3600) : null;
+  $hasSnack ? setTimeout(reset, 3500) : null;
 });
 
 export const $queueSnack = createStore<Snacks>([]);

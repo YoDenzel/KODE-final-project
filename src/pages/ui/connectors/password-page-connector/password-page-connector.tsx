@@ -4,6 +4,7 @@ import {
   $hasSnack,
   $queueSnack,
   $snacks,
+  resetPhone,
   snackAdded,
   snackLifeTimeFx,
 } from '../../../../models';
@@ -15,25 +16,27 @@ import { createEffect } from 'effector';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export const PasswordPageConnector = ({ navigation }: TRoute) => {
-  const { mutateAsync, data } = usePostAuthEnter();
+  const { mutateAsync, isError } = usePostAuthEnter();
   const [passwordShow, setPasswordShow] = useState<boolean>(false);
   const [input, setInput] = useState<string>('');
   const snack = useStore($queueSnack);
   const snacksStorage = useStore($snacks);
   const has = useStore($hasSnack);
   const id = Number(Date.now());
+  const [guestToken, setGuestToken] = useState<string | null>('');
+  const [status, setStatus] = useState(false);
 
   const fetchCountFromAsyncStorageFx = createEffect({
     async handler() {
       const value = await AsyncStorage.getItem('guestToken');
-
+      setGuestToken(value);
       return value;
     },
   });
 
   const queueForSnacks = () => {
     if (has) {
-      setTimeout(checkCondition, 3600);
+      setTimeout(checkCondition, 3500);
     } else {
       checkCondition();
     }
@@ -60,15 +63,21 @@ export const PasswordPageConnector = ({ navigation }: TRoute) => {
         id: id,
         successful: false,
       });
+    } else if (status) {
+      navigation.navigate('everythingGood', {});
     }
   };
 
   const checkCondition = () => {
     passwordValidation();
+    setStatus(true);
+    //mutateAsync({ guestToken: guestToken, input: input });
+    // постоянно выдает ошибку, что-то с запросом в стоплайте
+    // поэтому пока убрал, но если что, то запрос имеется, в async storage // все  кладу.
   };
 
   const quit = () => {
-    return Alert.alert('Вы точно хотите выйти?', '', [
+    Alert.alert('Вы точно хотите выйти?', '', [
       {
         text: 'Отмена',
         onPress: () => {},
@@ -81,6 +90,7 @@ export const PasswordPageConnector = ({ navigation }: TRoute) => {
         },
       },
     ]);
+    resetPhone();
   };
 
   return (

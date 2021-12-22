@@ -1,6 +1,6 @@
 import { createEvent, createStore, restore } from 'effector';
 import { persist } from 'effector-storage/rn/async';
-import { TPostAuth } from './types';
+import { TPostAuth, TPostAuthAccess } from './types';
 
 export const $isPageAuth = createStore<boolean>(true);
 
@@ -101,4 +101,18 @@ $guestToken.on(addGuestToken, (_, payload) => payload);
 persist({
   store: $guestToken,
   key: 'guestToken',
+});
+
+export const $postAuthAccessRefreshToken = createStore<TPostAuthAccess>(null);
+
+export const setPostAuthAccessRefreshToken = createEvent<TPostAuthAccess>({});
+
+$postAuthAccessRefreshToken.on(
+  setPostAuthAccessRefreshToken,
+  (_, payload) => payload,
+);
+
+persist({
+  store: $postAuthAccessRefreshToken,
+  key: 'access/refresh',
 });

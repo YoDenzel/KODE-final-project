@@ -51,8 +51,8 @@ export type ConfirmResponse = {
 };
 
 export type TEnterPost = {
-  guestToken: string;
-  password: string;
+  guestToken: string | null | undefined;
+  input: string;
 };
 
 export type EnterResponse = {

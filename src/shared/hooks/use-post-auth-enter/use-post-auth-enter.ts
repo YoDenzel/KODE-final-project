@@ -7,8 +7,8 @@ const UPDATE_QUERY_KEY = 'enter';
 export const usePostAuthEnter = () => {
   const queryClient = useQueryClient();
   const mutation = useMutation(
-    ({ password, guestToken }: TEnterPost) =>
-      fetchPostAuthEnter({ password, guestToken }),
+    ({ input, guestToken }: TEnterPost) =>
+      fetchPostAuthEnter({ input, guestToken }),
     {
       onSettled: () => {
         queryClient.invalidateQueries(UPDATE_QUERY_KEY);

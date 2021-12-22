@@ -13,6 +13,7 @@ function loadStories() {
   require('../src/shared/ui/core/molecules/credit-card-block/credit-card-block.story');
   require('../src/shared/ui/core/molecules/custom-keyboard-single-number/custom-keyboard-single-number.story');
   require('../src/shared/ui/core/molecules/delete-last-symbol/delete-last-symbol.story');
+  require('../src/shared/ui/core/molecules/everything-is-ready-block/everything-is-ready-block.story');
   require('../src/shared/ui/core/molecules/go-back/go-back.story');
   require('../src/shared/ui/core/molecules/header-for-main/header-for-main.story');
   require('../src/shared/ui/core/molecules/header-for-money-transfer-page/header-for-money-transfer-page.story');
@@ -39,6 +40,7 @@ function loadStories() {
   require('../src/shared/ui/core/organisms/timer/timer.story');
   require('../src/shared/ui/core/pages/accepted-declined-page/accepted-declined-page.story');
   require('../src/shared/ui/core/pages/confirmation-page/confirmation-page.story');
+  require('../src/shared/ui/core/pages/everything-good-page/everything-good-page.story');
   require('../src/shared/ui/core/pages/money-transfer-page/money-transfer-page.story');
   require('../src/shared/ui/core/pages/otp-confirmation-page/otp-confirmation-page.story');
   require('../src/shared/ui/core/pages/password-page/password-page.story');
@@ -59,6 +61,7 @@ const stories = [
   '../src/shared/ui/core/molecules/credit-card-block/credit-card-block.story',
   '../src/shared/ui/core/molecules/custom-keyboard-single-number/custom-keyboard-single-number.story',
   '../src/shared/ui/core/molecules/delete-last-symbol/delete-last-symbol.story',
+  '../src/shared/ui/core/molecules/everything-is-ready-block/everything-is-ready-block.story',
   '../src/shared/ui/core/molecules/go-back/go-back.story',
   '../src/shared/ui/core/molecules/header-for-main/header-for-main.story',
   '../src/shared/ui/core/molecules/header-for-money-transfer-page/header-for-money-transfer-page.story',
@@ -85,6 +88,7 @@ const stories = [
   '../src/shared/ui/core/organisms/timer/timer.story',
   '../src/shared/ui/core/pages/accepted-declined-page/accepted-declined-page.story',
   '../src/shared/ui/core/pages/confirmation-page/confirmation-page.story',
+  '../src/shared/ui/core/pages/everything-good-page/everything-good-page.story',
   '../src/shared/ui/core/pages/money-transfer-page/money-transfer-page.story',
   '../src/shared/ui/core/pages/otp-confirmation-page/otp-confirmation-page.story',
   '../src/shared/ui/core/pages/password-page/password-page.story',

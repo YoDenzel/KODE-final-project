@@ -28,3 +28,8 @@ export type TServices = {
 };
 
 export type TPostAuth = string | undefined;
+
+export type TPostAuthAccess = {
+  accessToken: string;
+  refreshToken: string;
+} | null;

@@ -40,6 +40,7 @@ function loadStories() {
   require('../src/shared/ui/core/organisms/timer/timer.story');
   require('../src/shared/ui/core/pages/accepted-declined-page/accepted-declined-page.story');
   require('../src/shared/ui/core/pages/confirmation-page/confirmation-page.story');
+  require('../src/shared/ui/core/pages/error-page/error-page.story');
   require('../src/shared/ui/core/pages/everything-good-page/everything-good-page.story');
   require('../src/shared/ui/core/pages/money-transfer-page/money-transfer-page.story');
   require('../src/shared/ui/core/pages/otp-confirmation-page/otp-confirmation-page.story');
@@ -88,6 +89,7 @@ const stories = [
   '../src/shared/ui/core/organisms/timer/timer.story',
   '../src/shared/ui/core/pages/accepted-declined-page/accepted-declined-page.story',
   '../src/shared/ui/core/pages/confirmation-page/confirmation-page.story',
+  '../src/shared/ui/core/pages/error-page/error-page.story',
   '../src/shared/ui/core/pages/everything-good-page/everything-good-page.story',
   '../src/shared/ui/core/pages/money-transfer-page/money-transfer-page.story',
   '../src/shared/ui/core/pages/otp-confirmation-page/otp-confirmation-page.story',

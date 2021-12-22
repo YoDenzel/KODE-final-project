@@ -32,7 +32,6 @@ export const PhoneAuthPageConnector = ({ navigation, route }: TRoute) => {
   const snack = useStore($queueSnack);
   const snacksStorage = useStore($snacks);
   const has = useStore($hasSnack);
-  const randomKey = () => Math.random();
   const queueForSnacks = () => {
     if (has) {
       setTimeout(checkCondition, 3600);
@@ -65,8 +64,10 @@ export const PhoneAuthPageConnector = ({ navigation, route }: TRoute) => {
     setPostAuthId(data?.otpId);
     if (status === 'success') {
       navigation.navigate('otpAuth', {});
+    } else if (status === 'error') {
+      navigation.navigate('error', {});
     }
-  }, [data]);
+  }, [data, status]);
 
   const keyboardItems = [
     '1',

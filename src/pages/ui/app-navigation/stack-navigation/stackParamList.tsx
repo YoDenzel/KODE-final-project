@@ -8,4 +8,5 @@ export type stackParamList = {
   otpAuth: undefined;
   passwordAuth: undefined;
   everythingGood: undefined;
+  error: undefined;
 };

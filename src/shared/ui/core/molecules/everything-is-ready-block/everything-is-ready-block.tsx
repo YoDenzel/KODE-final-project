@@ -1,4 +1,5 @@
 import { styled } from '@shared/ui/theme';
+import { ElementType, ReactElement } from 'react';
 import { Icons, Typography } from '../../atoms';
 
 const Wrapper = styled.View`
@@ -20,17 +21,17 @@ const Info = styled(Typography)`
 interface TEverythingReadyBlock {
   title: string;
   info: string;
+  image: ReactElement;
 }
 
 export const EverythingReadyBlock = ({
   title,
   info,
+  image,
 }: TEverythingReadyBlock) => {
   return (
     <Wrapper>
-      <ImageBlock>
-        <Icons.Hands />
-      </ImageBlock>
+      <ImageBlock>{image}</ImageBlock>
       <Title variant="body17Medium">{title}</Title>
       <Info variant="body15Regular">{info}</Info>
     </Wrapper>

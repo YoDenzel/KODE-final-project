@@ -8,6 +8,7 @@ import {
   PhoneAuthPageConnector,
   ServicePageConnector,
 } from '@pages/ui';
+import { ErrorPageConnector } from '@pages/ui/connectors/error-page-connector/error-page-connector';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { TabsNavigation } from '../tabs-navigation/tabs-navigation';
 import { stackParamList } from './stackParamList';
@@ -28,6 +29,7 @@ export const StackNavigation = () => {
         name="everythingGood"
         component={EverythingGoodPageConnector}
       />
+      <Stack.Screen name="error" component={ErrorPageConnector} />
       <Stack.Screen name="tabs" component={TabsNavigation} />
       <Stack.Screen name="services" component={ServicePageConnector} />
       <Stack.Screen name="salary" component={MoneyTransferPageConnector} />

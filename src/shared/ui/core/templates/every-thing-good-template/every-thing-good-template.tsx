@@ -13,14 +13,17 @@ const Flex1 = styled.View`
 interface TEverythingGoodTemplate {
   everythingReadyBlock: ReactNode;
   submitButton: ReactNode;
+  cancelButton?: ReactNode;
 }
 
 export const EverythingGoodTemplate = ({
   everythingReadyBlock,
   submitButton,
+  cancelButton,
 }: TEverythingGoodTemplate) => {
   return (
     <Background>
+      {cancelButton}
       <Flex1 />
       {everythingReadyBlock}
       <Flex1 />

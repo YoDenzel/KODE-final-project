@@ -17,6 +17,7 @@ import { ShowPassword } from './show-password/show-password';
 import { VisiblePassword } from './visible-password/visible-password';
 import { Lock } from './lock/lock';
 import { Hands } from './hands/hands';
+import { Error } from './error/error';
 
 export const Icons = {
   ArrowGoBack,
@@ -38,4 +39,5 @@ export const Icons = {
   ShowPassword,
   Lock,
   Hands,
+  Error,
 };

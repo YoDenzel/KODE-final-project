@@ -57,7 +57,9 @@ export const PasswordPageConnector = ({ navigation }: TRoute) => {
         id: id,
         successful: false,
       });
-    } else if (input.match(/[!#$%&? @"]/ || input.search(/[a-zA-Z0-9]/))) {
+    } else if (
+      input.match(/[!#$%&? @а-яА-Я"]/ || input.search(/[a-zA-Z0-9]/))
+    ) {
       snackAdded({
         title: 'Пароль может содержать только латинские цифры и буквы!',
         id: id,
@@ -65,6 +67,9 @@ export const PasswordPageConnector = ({ navigation }: TRoute) => {
       });
     } else if (status) {
       navigation.navigate('everythingGood', {});
+    } else {
+      navigation.navigate('error', {});
+      setInput('');
     }
   };
 

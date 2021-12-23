@@ -60,7 +60,7 @@ export const PasswordPageConnector = ({ navigation }: TRoute) => {
       input.match(/[!#$%&? @а-яА-Я"]/ || input.search(/[a-zA-Z0-9]/))
     ) {
       snackAdded({
-        title: 'Пароль может содержать только латинские цифры и буквы!',
+        title: 'Пароль может содержать только  цифры и латинские буквы!',
         id: id,
         successful: false,
       });

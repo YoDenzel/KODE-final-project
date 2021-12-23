@@ -16,7 +16,7 @@ import { createEffect } from 'effector';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export const PasswordPageConnector = ({ navigation }: TRoute) => {
-  const { mutateAsync, isError } = usePostAuthEnter();
+  const { mutateAsync, status } = usePostAuthEnter();
   const [passwordShow, setPasswordShow] = useState<boolean>(false);
   const [input, setInput] = useState<string>('');
   const snack = useStore($queueSnack);
@@ -24,7 +24,6 @@ export const PasswordPageConnector = ({ navigation }: TRoute) => {
   const has = useStore($hasSnack);
   const id = Number(Date.now());
   const [guestToken, setGuestToken] = useState<string | null>('');
-  const [status, setStatus] = useState(true);
 
   const fetchCountFromAsyncStorageFx = createEffect({
     async handler() {
@@ -65,20 +64,23 @@ export const PasswordPageConnector = ({ navigation }: TRoute) => {
         id: id,
         successful: false,
       });
-    } else if (status) {
-      navigation.navigate('everythingGood', {});
-    } else if (!status) {
-      navigation.navigate('error', {});
-      setInput('');
+    } else {
+      mutateAsync({ guestToken: guestToken, input: input });
     }
   };
 
   const checkCondition = () => {
     passwordValidation();
-    //mutateAsync({ guestToken: guestToken, input: input });
-    // постоянно выдает ошибку, что-то с запросом в стоплайте
-    // поэтому пока убрал, но если что, то запрос имеется, в async storage // все  кладу.
   };
+
+  useEffect(() => {
+    if (status === 'success') {
+      navigation.navigate('everythingGood', {});
+    } else if (status === 'error') {
+      navigation.navigate('error', {});
+      setInput('');
+    }
+  }, [status]);
 
   const quit = () => {
     Alert.alert('Вы точно хотите выйти?', '', [

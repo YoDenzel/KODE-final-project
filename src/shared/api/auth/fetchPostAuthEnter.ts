@@ -13,7 +13,7 @@ export const fetchPostAuthEnter = async ({
         'Content-Type': 'application/json',
         Prefer: 'code=200',
       },
-      body: `{"password":"${input}","guestToken":"${guestToken}"}`,
+      body: `{"password":"${input}","guestToken":${guestToken}}`,
     },
   );
 

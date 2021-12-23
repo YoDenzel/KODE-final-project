@@ -42,12 +42,6 @@ export const OtpInput = ({ otp }: TOtpInput) => {
 
   return (
     <>
-      <TextInput
-        maxLength={4}
-        value={otp}
-        style={{ height: 0 }}
-        showSoftInputOnFocus={true}
-      />
       <OtpContainer>
         {[0, 1, 2, 3].map((item, index) => (
           <>

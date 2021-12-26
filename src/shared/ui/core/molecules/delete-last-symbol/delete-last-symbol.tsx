@@ -22,6 +22,7 @@ export const DeleteLastSymbol = ({ route }: TDeleteLastSymbol) => {
           ? deleteLastCharPhone('')
           : deleteLastCharOtp('');
       }}
+      hitSlop={{ top: 30, bottom: 30, right: 40, left: 40 }}
     >
       <Icons.Backspace />
     </Wrapper>

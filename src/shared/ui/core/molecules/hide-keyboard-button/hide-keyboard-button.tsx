@@ -21,7 +21,10 @@ export const HideKeyboardButton = ({
   setPhoneInputClick,
 }: THideKeyboardButton) => {
   return (
-    <Wrapper onPress={() => setPhoneInputClick(false)}>
+    <Wrapper
+      onPress={() => setPhoneInputClick(false)}
+      hitSlop={{ top: 30, bottom: 30, right: 40, left: 40 }}
+    >
       <Title variant="caption1">{title}</Title>
     </Wrapper>
   );

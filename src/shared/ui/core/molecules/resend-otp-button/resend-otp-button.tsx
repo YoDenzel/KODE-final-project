@@ -21,7 +21,10 @@ export const ResendOtpButton = ({
   sendRequestAgain,
 }: TResendOtpButton) => {
   return (
-    <Wrapper onPress={() => sendRequestAgain()}>
+    <Wrapper
+      onPress={() => sendRequestAgain()}
+      hitSlop={{ top: 30, bottom: 30, right: 40, left: 40 }}
+    >
       <Title variant="caption1">{title}</Title>
     </Wrapper>
   );

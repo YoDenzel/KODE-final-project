@@ -24,6 +24,7 @@ function loadStories() {
   require('../src/shared/ui/core/molecules/money-sum-input/money-sum-input.story');
   require('../src/shared/ui/core/molecules/otp-input/otp-input.story');
   require('../src/shared/ui/core/molecules/password-input/password-input.story');
+  require('../src/shared/ui/core/molecules/phone-auth-number-input/phone-auth-number-input.story');
   require('../src/shared/ui/core/molecules/phone-number-input/phone-number-input.story');
   require('../src/shared/ui/core/molecules/resend-otp-button/resend-otp-button.story');
   require('../src/shared/ui/core/molecules/searchbar/searchbar.story');
@@ -73,6 +74,7 @@ const stories = [
   '../src/shared/ui/core/molecules/money-sum-input/money-sum-input.story',
   '../src/shared/ui/core/molecules/otp-input/otp-input.story',
   '../src/shared/ui/core/molecules/password-input/password-input.story',
+  '../src/shared/ui/core/molecules/phone-auth-number-input/phone-auth-number-input.story',
   '../src/shared/ui/core/molecules/phone-number-input/phone-number-input.story',
   '../src/shared/ui/core/molecules/resend-otp-button/resend-otp-button.story',
   '../src/shared/ui/core/molecules/searchbar/searchbar.story',

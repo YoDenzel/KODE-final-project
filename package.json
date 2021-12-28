@@ -29,6 +29,7 @@
     "react-native": "0.64.2",
     "react-native-currency-input": "^1.0.1",
     "react-native-ionicons": "^4.x",
+    "react-native-mask-input": "^1.1.1",
     "react-native-safe-area-context": "3.3.2",
     "react-native-screens": "~3.8.0",
     "react-native-svg": "12.1.1",

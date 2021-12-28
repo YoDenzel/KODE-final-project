@@ -52,6 +52,10 @@ export {
   addGuestToken,
   $postAuthAccessRefreshToken,
   setPostAuthAccessRefreshToken,
+  setAuthInputPhone,
+  $authInputPhone,
 } from './auth';
+
+export { $isAuthorised, setAuthorised } from './navigation';
 
 export type { Snack, TServices, ItemsType, TCategories } from './types';

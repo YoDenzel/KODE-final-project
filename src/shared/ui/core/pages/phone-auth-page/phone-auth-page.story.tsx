@@ -1,3 +1,4 @@
+import { text } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react-native';
 import { HideKeyboardButton, DeleteLastSymbol } from '../../molecules';
 import { PhoneAuthPage } from './phone-auth-page';
@@ -10,16 +11,16 @@ storiesOf('ui/pages', module).add('phone-auth-page', () => {
         checkConditions: () => void 0,
       }}
       phoneInput={{
-        items_icon: 'https://github.com/kode-frontend/files/raw/main/MTS.png',
-        input: '',
+        input: text('input', ''),
         setInput: () => {},
         placeholderText: 'Телефон',
         isPageAuth: true,
         setPhoneInputClicked: () => void 0,
-        phoneInputClicked: false,
+        phoneInputClicked: true,
       }}
       kodeLogo
       customKeyboard={{
+        input: '',
         isOtp: '',
         phoneInputClicked: false,
         keyboardItems: [

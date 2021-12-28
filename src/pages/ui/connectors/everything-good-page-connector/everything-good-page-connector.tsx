@@ -1,10 +1,11 @@
 import { Icons } from '@shared/ui/core/atoms';
 import { EverythingGoodPage } from '@shared/ui/core/pages/everything-good-page';
+import { setAuthorised } from '../../../../models';
 import { TRoute } from '../confirmation-page-connector/types';
 
 export const EverythingGoodPageConnector = ({ navigation }: TRoute) => {
   const checkConditions = () => {
-    navigation.navigate('tabs', {});
+    setAuthorised(true);
   };
 
   return (

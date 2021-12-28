@@ -12,6 +12,14 @@ export const deleteLastCharPhone = createEvent<string>();
 
 export const $inputPhone = createStore<string>('');
 
+export const setAuthInputPhone = createEvent<number>();
+
+export const $authInputPhone = createStore<number | null>(null);
+
+$authInputPhone.on(setAuthInputPhone, (prevState, payload) => {
+  return prevState && prevState + payload;
+});
+
 $isPageAuth.on(setIsPageAuth, (_, payload) => payload);
 
 $inputPhone.on(setInputPhone, (prevState, payload) => {

@@ -1,6 +1,5 @@
 import { styled } from '@shared/ui/theme';
 import { ReactNode } from 'react';
-import { KeyboardAvoidingView } from 'react-native';
 
 const Background = styled.View`
   background-color: ${({ theme }) => theme.palette.background.secondary};

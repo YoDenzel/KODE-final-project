@@ -5,6 +5,7 @@ import { CustomKeyboard } from './custom-keyboard';
 storiesOf('ui/organisms', module).add('custom-keyboard', () => {
   return (
     <CustomKeyboard
+      input=""
       phoneInputClicked={true}
       keyboardItems={[
         '1',

@@ -2,6 +2,7 @@ import { ComponentProps } from 'react';
 import {
   KodeLogoMolecule,
   MappedSnackBar,
+  PhoneAuthNumberInput,
   PhoneNumberInput,
   SubmitButton,
 } from '../../molecules';
@@ -11,7 +12,7 @@ import { PhoneAuthTemplate } from '../../templates';
 
 interface TPhoneAuthPage {
   submitButton: ComponentProps<typeof SubmitButton>;
-  phoneInput: ComponentProps<typeof PhoneNumberInput>;
+  phoneInput: ComponentProps<typeof PhoneAuthNumberInput>;
   kodeLogo: ComponentProps<typeof KodeLogoMolecule>;
   customKeyboard: ComponentProps<typeof CustomKeyboard>;
   snackBar: ComponentProps<typeof MappedSnackBar>;
@@ -28,7 +29,7 @@ export const PhoneAuthPage = ({
     <PhoneAuthTemplate
       submitButtton={<SubmitButton {...submitButton} />}
       kodeLogo={<KodeLogoMolecule />}
-      phoneInput={<PhoneNumberInput {...phoneInput} />}
+      phoneInput={<PhoneAuthNumberInput {...phoneInput} />}
       customKeyboard={<CustomKeyboard {...customKeyboard} />}
       snackBar={<MappedSnackBar {...snackBar} />}
     />

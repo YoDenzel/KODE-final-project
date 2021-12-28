@@ -15,6 +15,7 @@ interface TCustomKeyboard {
   phoneInputClicked: boolean;
   isOtp: string;
   loading?: boolean;
+  input: string;
 }
 
 export const CustomKeyboard = ({
@@ -22,6 +23,7 @@ export const CustomKeyboard = ({
   phoneInputClicked,
   isOtp,
   loading,
+  input,
 }: TCustomKeyboard) => {
   return phoneInputClicked ? (
     <Wrapper>
@@ -32,6 +34,7 @@ export const CustomKeyboard = ({
                 key={index + 1}
                 number={item}
                 isOtp={isOtp}
+                input={input}
               />
             );
           })

@@ -13,6 +13,7 @@ storiesOf('ui/pages', module).add('otp-confirmation-page', () => {
         otp: '12',
       }}
       customKeyboard={{
+        input: '',
         isOtp: 'true',
         phoneInputClicked: true,
         keyboardItems: [

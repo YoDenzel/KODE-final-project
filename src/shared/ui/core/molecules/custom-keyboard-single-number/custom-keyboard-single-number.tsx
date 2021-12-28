@@ -17,11 +17,13 @@ const Title = styled(Typography)`
 interface TCustomKeyboardSingleNumber {
   number: string | JSX.Element;
   isOtp: string;
+  input: string;
 }
 
 export const CustomKeyboardSingleNumber = ({
   number,
   isOtp,
+  input,
 }: TCustomKeyboardSingleNumber) => {
   return (
     <Wrapper
@@ -29,7 +31,9 @@ export const CustomKeyboardSingleNumber = ({
         if (isOtp === 'otpAuth') {
           typeof number === 'string' ? setInputOtp(number) : null;
         } else {
-          typeof number === 'string' ? setInputPhone(number) : null;
+          typeof number === 'string'
+            ? input?.length < 10 && setInputPhone(number)
+            : null;
         }
       }}
     >

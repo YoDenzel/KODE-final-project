@@ -7,3 +7,4 @@ export { PhoneAuthPageConnector } from './phone-auth-page-connector';
 export { OtpConfirmationPageConnector } from './otp-confirmation-page-connector';
 export { PasswordPageConnector } from './password-page-connector';
 export { EverythingGoodPageConnector } from './everything-good-page-connector';
+export { ErrorPageConnector } from './error-page-connector';

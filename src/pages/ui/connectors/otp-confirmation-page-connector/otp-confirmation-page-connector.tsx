@@ -143,6 +143,7 @@ export const OtpConfirmationPageConnector = ({ navigation, route }: TRoute) => {
         amountOfTries: amountOfTries,
       }}
       customKeyboard={{
+        input: '',
         keyboardItems: keyboardItems,
         phoneInputClicked: phoneInputClicked,
         isOtp: route.name,

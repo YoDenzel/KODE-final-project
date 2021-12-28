@@ -94,7 +94,6 @@ export const PhoneAuthPageConnector = ({ navigation, route }: TRoute) => {
         checkConditions: queueForSnacks,
       }}
       phoneInput={{
-        items_icon: 'https://github.com/kode-frontend/files/raw/main/MTS.png',
         input: inputPhone,
         setInput: setInputPhone,
         placeholderText: 'Телефон',
@@ -109,6 +108,7 @@ export const PhoneAuthPageConnector = ({ navigation, route }: TRoute) => {
         keyboardItems: keyboardItems,
         phoneInputClicked: phoneInputClicked,
         isOtp: route.name,
+        input: inputPhone,
       }}
       snackBar={{
         success: success,

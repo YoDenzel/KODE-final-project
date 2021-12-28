@@ -3,7 +3,7 @@ import { EverythingGoodPage } from '@shared/ui/core/pages/everything-good-page';
 import { setAuthorised } from '../../../../models';
 import { TRoute } from '../confirmation-page-connector/types';
 
-export const EverythingGoodPageConnector = ({ navigation }: TRoute) => {
+export const EverythingGoodPageConnector = () => {
   const checkConditions = () => {
     setAuthorised(true);
   };
